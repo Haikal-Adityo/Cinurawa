@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::get('/portofolio/{slug}', [PortofolioController::class, 'show'])->name('p
 
 
 // * BLOG
-Route::get('/blog', function () {
-    return view('blog.blog');
-})->name('blog');
+Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [PostController::class, 'show'])->name('blog.show');
+Route::get('/category/{category}', [PostController::class, 'showCategory'])->name('blog.category');
+Route::get('/search', [PostController::class, 'search'])->name('blog.search');

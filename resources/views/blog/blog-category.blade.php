@@ -17,8 +17,8 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <img src="assets/img/logo.svg" alt="Logo Cinurawa">
+            <a class="navbar-brand fw-bold" href="{{ route('home') }}">
+                <img src="{{ url('/img/logo.svg') }}" alt="Logo Cinurawa">
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -26,19 +26,19 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link " href="index.html">Home</a>
+                        <a class="nav-link" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="services.html">Services</a>
+                        <a class="nav-link" href="{{ route('services') }}">Services</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="portfolio.html">Portofolio</a>
+                        <a class="nav-link" href="{{ route('portofolio.index') }}">Portofolio</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link active" href="#">Blog</a>
+                        <a class="nav-link active" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">About Us</a>
+                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -50,27 +50,27 @@
             <div class="row search-container">
                 <div class="col-md-8">
                     <div class="row row-search">
-                        <div class="col"><a href="#">Home</a></div>
-                        <div class="col"><a href="#">Property</a></div>
-                        <div class="col"><a href="#">Architecture</a></div>
-                        <div class="col"><a href="#">Financial</a></div>
-                        <div class="col"><a href="#">Creativity</a></div>
-                        <div class="col"><a href="#">Lifestyle</a></div>
-                        <div class="col"><a href="#">Culture</a></div>
+                        {{-- <div class="col"><a href="{{ route('home') }}">Home</a></div> --}}
+                        @foreach($categories as $navCategory)
+                            <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a></div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="search">
-                        <input type="text" class="search-input" placeholder="search..." name="">
-                        <a href="#" class="search-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none">
-                                <path
-                                    d="M21.7505 20.6895L16.0865 15.0255C17.4475 13.3914 18.1263 11.2956 17.9815 9.17389C17.8366 7.05219 16.8794 5.06801 15.3089 3.6341C13.7384 2.2002 11.6755 1.42697 9.54942 1.47528C7.42333 1.52359 5.39772 2.38971 3.89396 3.89347C2.3902 5.39723 1.52408 7.42284 1.47577 9.54893C1.42746 11.675 2.20068 13.7379 3.63459 15.3084C5.0685 16.8789 7.05268 17.8361 9.17438 17.981C11.2961 18.1258 13.3919 17.4471 15.026 16.086L20.69 21.75L21.7505 20.6895ZM3.00045 9.74996C3.00045 8.41494 3.39633 7.1099 4.13803 5.99987C4.87973 4.88983 5.93394 4.02467 7.16734 3.51378C8.40074 3.00289 9.75794 2.86921 11.0673 3.12966C12.3767 3.39011 13.5794 4.03299 14.5234 4.97699C15.4674 5.921 16.1103 7.12373 16.3708 8.4331C16.6312 9.74248 16.4975 11.0997 15.9866 12.3331C15.4757 13.5665 14.6106 14.6207 13.5006 15.3624C12.3905 16.1041 11.0855 16.5 9.75045 16.5C7.96085 16.498 6.24512 15.7862 4.97967 14.5207C3.71423 13.2553 3.00244 11.5396 3.00045 9.74996Z"
-                                    fill="#4A5A67" />
-                            </svg>
-                        </a>
-                    </div>
+                    <form action="{{ route('blog.search')}}" method="GET">
+                        @csrf
+                        <div class="search">
+                            <input type="text" class="search-input" placeholder="search..." name="query">
+                            <button type="submit" class="search-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M21.7505 20.6895L16.0865 15.0255C17.4475 13.3914 18.1263 11.2956 17.9815 9.17389C17.8366 7.05219 16.8794 5.06801 15.3089 3.6341C13.7384 2.2002 11.6755 1.42697 9.54942 1.47528C7.42333 1.52359 5.39772 2.38971 3.89396 3.89347C2.3902 5.39723 1.52408 7.42284 1.47577 9.54893C1.42746 11.675 2.20068 13.7379 3.63459 15.3084C5.0685 16.8789 7.05268 17.8361 9.17438 17.981C11.2961 18.1258 13.3919 17.4471 15.026 16.086L20.69 21.75L21.7505 20.6895ZM3.00045 9.74996C3.00045 8.41494 3.39633 7.1099 4.13803 5.99987C4.87973 4.88983 5.93394 4.02467 7.16734 3.51378C8.40074 3.00289 9.75794 2.86921 11.0673 3.12966C12.3767 3.39011 13.5794 4.03299 14.5234 4.97699C15.4674 5.921 16.1103 7.12373 16.3708 8.4331C16.6312 9.74248 16.4975 11.0997 15.9866 12.3331C15.4757 13.5665 14.6106 14.6207 13.5006 15.3624C12.3905 16.1041 11.0855 16.5 9.75045 16.5C7.96085 16.498 6.24512 15.7862 4.97967 14.5207C3.71423 13.2553 3.00244 11.5396 3.00045 9.74996Z"
+                                        fill="#4A5A67" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -78,78 +78,37 @@
 
     <section>
         <div class="container">
-            <div class="d-flex mb-5">
-                <div class="me-24"><img src="assets/img/blogs/blog-category.png" alt=""></div>
-                <div>
-                    <h2>Property</h>
+            @if($posts->count() > 0)
+                <div class="d-flex mb-5">
+                    <div class="me-24"><img src="assets/img/blogs/blog-category.png" alt=""></div>
+                    <div>
+                        <h2>{{ $categoryModel->name }}</h2>
+                    </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="blog-detail.html">
-                        <img src="assets/img/blogs/property/1.png" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="blog-category-title">What is your favorite leather jacket color</div>
-                            <div class="blog-category-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-                                co elit,
-                                sed do co elit, sed do eswqe eiusmod.... </div>
-                            <div class="blog-category-time">
-                                5 minutes ago
+                
+                @foreach($posts->where('is_published', true)->sortByDesc('created_at') as $post)
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
+                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="blog-category-title">{{ $post->title }}</div>
+                                <div class="blog-category-subtitle">{!! $post->content !!} </div>
+                                <div class="blog-category-time">
+                                    {{ $post->created_at->diffForHumans() }}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-md-4">
-                    <img src="assets/img/blogs/property/2.png" alt="" class="img-fluid">
-                </div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="blog-category-title">What is your favorite leather jacket color</div>
-                            <div class="blog-category-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-                                co elit,
-                                sed do co elit, sed do eswqe eiusmod.... </div>
-                            <div class="blog-category-time">
-                                5 minutes ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-md-4">
-                    <img src="assets/img/blogs/property/3.png" alt="" class="img-fluid">
-                </div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="blog-category-title">What is your favorite leather jacket color</div>
-                            <div class="blog-category-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-                                co elit,
-                                sed do co elit, sed do eswqe eiusmod.... </div>
-                            <div class="blog-category-time">
-                                5 minutes ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+                @endforeach
+            @else
+            <p>Tidak ada</p>
+            @endif
         </div>
     </section>
 
@@ -165,7 +124,7 @@
                             info.cinurawa@gmail.com
                         </div>
                         <div class="medsos">
-                            <a href="">
+                            <a href="https://www.facebook.com/">
                                 <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
                             </a>
                             <a href="https://twitter.com/BirawaCitra">

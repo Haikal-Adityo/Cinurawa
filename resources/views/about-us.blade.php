@@ -34,7 +34,7 @@
                         <a class="nav-link" href="{{ route('portofolio.index') }}">Portofolio</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                        <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">About Us</a>
@@ -227,7 +227,7 @@
                             info.cinurawa@gmail.com
                         </div>
                         <div class="medsos">
-                            <a href="">
+                            <a href="https://www.facebook.com/">
                                 <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
                             </a>
                             <a href="https://twitter.com/BirawaCitra">

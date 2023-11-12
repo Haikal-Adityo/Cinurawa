@@ -541,7 +541,19 @@ footer a {
     
 }
 
+.search-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
 
+.search-icon svg {
+    fill: #4A5A67;
+    width: 24px;
+    height: 24px;
+}
 
 
 

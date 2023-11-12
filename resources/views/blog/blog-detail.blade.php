@@ -16,8 +16,8 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <img src="assets/img/logo.svg" alt="Logo Cinurawa">
+            <a class="navbar-brand fw-bold" href="{{ route('home') }}">
+                <img src="{{ url('/img/logo.svg') }}" alt="Logo Cinurawa">
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -25,19 +25,19 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link " href="index.html">Home</a>
+                        <a class="nav-link" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="services.html">Services</a>
+                        <a class="nav-link" href="{{ route('services') }}">Services</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        <a class="nav-link" href="{{ route('portofolio.index') }}">Portofolio</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link active" href="blog.html">Blog</a>
+                        <a class="nav-link active" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">About Us</a>
+                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -49,13 +49,10 @@
             <div class="row search-container">
                 <div class="col-md-8">
                     <div class="row row-search">
-                        <div class="col"><a href="#">Home</a></div>
-                        <div class="col"><a href="#">Property</a></div>
-                        <div class="col"><a href="#">Architecture</a></div>
-                        <div class="col"><a href="#">Financial</a></div>
-                        <div class="col"><a href="#">Creativity</a></div>
-                        <div class="col"><a href="#">Lifestyle</a></div>
-                        <div class="col"><a href="#">Culture</a></div>
+                        {{-- <div class="col"><a href="{{ route('home') }}">Home</a></div> --}}
+                        @foreach($categories as $navCategory)
+                            <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a></div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -77,56 +74,41 @@
 
     <section class="detail-portofolio">
         <div class="detail-services">
-            <h2 class="mb-3">What is your favorite leather jacket color Lorem ipsum dolor sit amet</h2>
+            <h2 class="mb-3">{{ $post->title }}</h2>
             <div class="d-flex">
-                <img src="assets/img/blogs/property-label.png" alt="" class="img-blog-label">
+
+                @if($post->category && $post->category->name == 'Property')
+                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                @elseif($post->category && $post->category->name == 'Financial')
+                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label">
+                @elseif($post->category && $post->category->name == 'Architecture')
+                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label">
+                @elseif($post->category && $post->category->name == 'Creativity')
+                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label">
+                @elseif($post->category && $post->category->name == 'Lifestyle')
+                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label">
+                @elseif($post->category && $post->category->name == 'Culture')
+                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
+                @else
+                    <img src="{{ url('/img/blogs/default-label.png') }}" alt="" class="img-blog-label">
+                @endif
+
                 <div class="reguler-text mt-4 ms-4">
-                    1 day ago
+                    {{ $post->created_at->diffForHumans() }}
                 </div>
             </div>
-            <img src="assets/img/detail-services/1.png" alt="" class="img-fluid mt-4">
+            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid mt-4">
             <div class="reguler-text mt-5">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    fugiat nulla pariatur.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    fugiat nulla pariatur.</p>
-            </div>
-
-            <img src="assets/img/detail-services/1.png" alt="" class="img-fluid mt-4">
-            <div class="reguler-text mt-5">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    fugiat nulla pariatur.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    fugiat nulla pariatur.</p>
+                {!! $post->content !!}
             </div>
 
             <div class="tag">
                 Tags :
-                <a href="#" class="button-tags medium-text ms-16 me-16">#perumahan</a>
-                <a href="#" class="button-tags medium-text me-16">#cluster</a>
-                <a href="#" class="button-tags medium-text mt-5 me-16">#property</a>
-                <a href="#" class="button-tags medium-text me-16">#jogja</a>
-                <a href="#" class="button-tags medium-text">#cinurawa</a>
+                @forelse($tags as $tag)
+                    <a href="#" class="button-tags medium-text {{ $loop->last ? '' : 'me-16' }}">#{{ $tag->slug }}</a>
+                @empty
+                    <span>No tags available</span>
+                @endforelse
             </div>
         </div>
     </section>
@@ -143,7 +125,7 @@
                             info.cinurawa@gmail.com
                         </div>
                         <div class="medsos">
-                            <a href="">
+                            <a href="https://www.facebook.com/">
                                 <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
                             </a>
                             <a href="https://twitter.com/BirawaCitra">

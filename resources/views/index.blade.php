@@ -36,7 +36,7 @@
                         <a class="nav-link" href="{{ route('portofolio.index') }}">Portofolio</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                        <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
@@ -67,13 +67,15 @@
                             </svg>
                         </button>
                     </a>
-                    <button class="button-secondary">Explore Now
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
-                            <path
-                                d="M11.9634 11.3032C11.9634 11.7175 11.6276 12.0533 11.2134 12.0533L4.46342 12.0533C4.04921 12.0533 3.71342 11.7176 3.71341 11.3033C3.71341 10.8891 4.04919 10.5533 4.4634 10.5533L10.4634 10.5533L10.4633 4.55327C10.4633 4.13905 10.7991 3.80326 11.2133 3.80326C11.6275 3.80325 11.9633 4.13903 11.9633 4.55325L11.9634 11.3032ZM1.13701 0.166441L11.7437 10.7729L10.6831 11.8336L0.0763655 1.22711L1.13701 0.166441Z"
-                                fill="#041827" />
-                        </svg>
-                    </button>
+                    <a href="{{ route('about') }}">
+                        <button class="button-secondary">Explore Now
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                <path
+                                    d="M11.9634 11.3032C11.9634 11.7175 11.6276 12.0533 11.2134 12.0533L4.46342 12.0533C4.04921 12.0533 3.71342 11.7176 3.71341 11.3033C3.71341 10.8891 4.04919 10.5533 4.4634 10.5533L10.4634 10.5533L10.4633 4.55327C10.4633 4.13905 10.7991 3.80326 11.2133 3.80326C11.6275 3.80325 11.9633 4.13903 11.9633 4.55325L11.9634 11.3032ZM1.13701 0.166441L11.7437 10.7729L10.6831 11.8336L0.0763655 1.22711L1.13701 0.166441Z"
+                                    fill="#041827" />
+                            </svg>
+                        </button>
+                    </a>
                 </div>
                 <div class="col-md-6 hero2">
                     <div class="hero-card">
@@ -389,7 +391,7 @@
                             info.cinurawa@gmail.com
                         </div>
                         <div class="medsos">
-                            <a href="">
+                            <a href="https://www.facebook.com/">
                                 <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
                             </a>
                             <a href="https://twitter.com/BirawaCitra">

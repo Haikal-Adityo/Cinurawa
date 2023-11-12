@@ -34,7 +34,7 @@
                         <a class="nav-link active" href="#">Portofolio</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                        <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
@@ -84,106 +84,6 @@
                         </div>
                     @endforeach
 
-
-
-                    {{-- <div class="col-md-4 frame">
-                        <a href="detail-portofolio">
-                            <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                            <h3 class="title">First Portofolio Header</h3>
-                            <div class="reguler-text sub-title">
-                                21 Agustus 2023
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio2.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio2.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio2.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio2.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 frame">
-                        <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                        <h3 class="title">First Portofolio Header</h3>
-                        <div class="reguler-text sub-title">
-                            21 Agustus 2023
-                        </div>
-                    </div> --}}
-
                 </div>
             </div>
         </section>
@@ -201,7 +101,7 @@
                             info.cinurawa@gmail.com
                         </div>
                         <div class="medsos">
-                            <a href="">
+                            <a href="https://www.facebook.com/">
                                 <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
                             </a>
                             <a href="https://twitter.com/BirawaCitra">
