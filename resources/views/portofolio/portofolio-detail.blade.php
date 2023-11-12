@@ -10,13 +10,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
+    <link rel="icon" href="{{ url('/img/logo-black.png') }}">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
-                <img src="assets/img/logo.svg" alt="Logo Cinurawa">
+                <img src="{{ url('/img/logo.svg') }}" alt="Logo Cinurawa">
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -60,7 +61,7 @@
                 </div>
                 <div class="col-md-6 hero1 text-end">
                     <div class="hero-card">
-                        <img src="assets/img/portfolio/portfolio1.png" alt="Judul Profil" class="img-fluid">
+                        <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="Judul Profil" class="img-fluid">
                     </div>
                 </div>
             </div>

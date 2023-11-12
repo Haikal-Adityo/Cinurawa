@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,13 +31,8 @@ Route::get('/about-us', function () {
 
 
 // * PORTOFOLIO
-Route::get('/portfolio', function () {
-    return view('portofolio.portofolio');
-})->name('portfolio');
-
-Route::get('/portfolio-detail', function () {
-    return view('portofolio.portofolio');
-})->name('portfolio');
+Route::get('/portofolio', [PortofolioController::class, 'index'])->name('portofolio.index');
+Route::get('/portofolio/{slug}', [PortofolioController::class, 'show'])->name('portofolio.show');
 
 
 // * BLOG

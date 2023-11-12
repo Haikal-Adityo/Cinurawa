@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
+    <link rel="icon" href="{{ url('/img/logo-black.png') }}">
 </head>
 
 <body>
@@ -70,7 +71,21 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 frame">
+
+                    @foreach($portfolios as $portfolio)
+                        <div class="col-md-4 frame">
+                            <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
+                                <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid rounded">
+                                <h3 class="title">{{ $portfolio->title }}</h3>
+                                <div class="reguler-text sub-title">
+                                    {{ $portfolio->created_at->format('d F Y') }}
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+
+
+                    {{-- <div class="col-md-4 frame">
                         <a href="detail-portofolio">
                             <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
                             <h3 class="title">First Portofolio Header</h3>
@@ -166,7 +181,8 @@
                         <div class="reguler-text sub-title">
                             21 Agustus 2023
                         </div>
-                    </div>
+                    </div> --}}
+
                 </div>
             </div>
         </section>
