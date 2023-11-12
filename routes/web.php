@@ -29,7 +29,6 @@ Route::get('/about-us', function () {
 })->name('about');
 
 
-
 // * PORTOFOLIO
 Route::get('/portfolio', function () {
     return view('portofolio.portofolio');
@@ -38,7 +37,6 @@ Route::get('/portfolio', function () {
 Route::get('/portfolio-detail', function () {
     return view('portofolio.portofolio');
 })->name('portfolio');
-
 
 
 // * BLOG
