@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/fav-icon.png" type="image/x-icon">
     <link rel="shortcut icon" href="assets/img/fav-icon.png" type="image/x-icon">
-    <title>Landing Page Cinurawa</title>
+    <title>Immersive Technology in Property - CINURAWA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url('/css/owl.carousel.min.css') }}" />
-        
+    <link rel="icon" href="{{ url('/img/logo-black.png') }}">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                         <a class="nav-link" href="{{ route('services') }}">Services</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="{{ route('portfolio') }}">Portofolio</a>
+                        <a class="nav-link" href="{{ route('portofolio.index') }}">Portofolio</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>
@@ -58,13 +58,15 @@
                         imaginations
                         come true.
                     </p>
-                    <button class="button-primary me-1">Contact Us
-                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
-                            <path
-                                d="M12.3567 1.69675C12.3567 1.28254 12.0209 0.946749 11.6067 0.946744L4.85673 0.946666C4.44252 0.946661 4.10673 1.28244 4.10672 1.69666C4.10672 2.11087 4.4425 2.44666 4.85671 2.44667L10.8567 2.44674L10.8566 8.44673C10.8566 8.86095 11.1924 9.19674 11.6066 9.19674C12.0209 9.19675 12.3566 8.86097 12.3566 8.44675L12.3567 1.69675ZM1.53032 12.8336L12.137 2.22708L11.0764 1.16641L0.469676 11.7729L1.53032 12.8336Z"
-                                fill="white" />
-                        </svg>
-                    </button>
+                    <a href="https://wa.me/6285702750455"/>
+                        <button class="button-primary me-1">Contact Us
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                <path
+                                    d="M12.3567 1.69675C12.3567 1.28254 12.0209 0.946749 11.6067 0.946744L4.85673 0.946666C4.44252 0.946661 4.10673 1.28244 4.10672 1.69666C4.10672 2.11087 4.4425 2.44666 4.85671 2.44667L10.8567 2.44674L10.8566 8.44673C10.8566 8.86095 11.1924 9.19674 11.6066 9.19674C12.0209 9.19675 12.3566 8.86097 12.3566 8.44675L12.3567 1.69675ZM1.53032 12.8336L12.137 2.22708L11.0764 1.16641L0.469676 11.7729L1.53032 12.8336Z"
+                                    fill="white" />
+                            </svg>
+                        </button>
+                    </a>
                     <button class="button-secondary">Explore Now
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                             <path
@@ -237,7 +239,7 @@
                 </div>
 
                 <div class="col-md-4 text-end see">
-                    <a href="index.html">
+                    <a href="{{ route('portofolio.index') }}">
                         See All
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="15" viewBox="0 0 33 15" fill="none">
                             <path
@@ -255,58 +257,23 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4 frame">
-                    <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                    <h3 class="title">First Portofolio Header</h3>
-                    <div class="reguler-text sub-title">
-                        21 Agustus 2023
-                    </div>
-                </div>
 
-                <div class="col-md-4 frame">
-                    <img src="{{ url('/img/portfolio/portfolio2.png') }}" alt="" class="img-fluid">
-                    <h3 class="title">First Portofolio Header</h3>
-                    <div class="reguler-text sub-title">
-                        21 Agustus 2023
+                @foreach($portfolios->sortByDesc('created_at')->take(6) as $portfolio)
+                    <div class="col-md-4 frame">
+                        <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
+                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid rounded">
+                            <h3 class="title">{{ $portfolio->title }}</h3>
+                            <div class="reguler-text sub-title">
+                                {{ $portfolio->created_at->format('d F Y') }}
+                            </div>
+                        </a>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="col-md-4 frame">
-                    <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                    <h3 class="title">First Portofolio Header</h3>
-                    <div class="reguler-text sub-title">
-                        21 Agustus 2023
-                    </div>
-                </div>
-
-                <div class="col-md-4 frame">
-                    <img src="{{ url('/img/portfolio/portfolio2.png') }}" alt="" class="img-fluid">
-                    <h3 class="title">First Portofolio Header</h3>
-                    <div class="reguler-text sub-title">
-                        21 Agustus 2023
-                    </div>
-                </div>
-
-                <div class="col-md-4 frame">
-                    <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                    <h3 class="title">First Portofolio Header</h3>
-                    <div class="reguler-text sub-title">
-                        21 Agustus 2023
-                    </div>
-                </div>
-
-                <div class="col-md-4 frame">
-                    <img src="{{ url('/img/portfolio/portfolio1.png') }}" alt="" class="img-fluid">
-                    <h3 class="title">First Portofolio Header</h3>
-                    <div class="reguler-text sub-title">
-                        21 Agustus 2023
-                    </div>
-                </div>
             </div>
 
-
             <div class="button">
-                <a href="#">
+                <a href="{{ route('portofolio.index') }}">
                     <button>
                         View More
                     </button>
@@ -392,60 +359,12 @@
         </div>
     </section>
 
-    <!-- <section id="slider" class="pt-5">
-        <div class="container mt-5">
-            <div class="slider">
-                <div class="owl-carousel">
-                    <div class="slider-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path
-                                d="M12 16H6.11C6.29585 14.7623 6.73779 13.577 7.40759 12.5198C8.07739 11.4626 8.96033 10.5567 10 9.86L11.79 8.66L10.69 7L8.9 8.2C7.39328 9.20408 6.15771 10.5646 5.30293 12.1607C4.44816 13.7569 4.00061 15.5394 4 17.35V24C4 24.5304 4.21071 25.0391 4.58579 25.4142C4.96086 25.7893 5.46957 26 6 26H12C12.5304 26 13.0391 25.7893 13.4142 25.4142C13.7893 25.0391 14 24.5304 14 24V18C14 17.4696 13.7893 16.9609 13.4142 16.5858C13.0391 16.2107 12.5304 16 12 16ZM26 16H20.11C20.2959 14.7623 20.7378 13.577 21.4076 12.5198C22.0774 11.4626 22.9603 10.5567 24 9.86L25.79 8.66L24.7 7L22.9 8.2C21.3933 9.20408 20.1577 10.5646 19.3029 12.1607C18.4482 13.7569 18.0006 15.5394 18 17.35V24C18 24.5304 18.2107 25.0391 18.5858 25.4142C18.9609 25.7893 19.4696 26 20 26H26C26.5304 26 27.0391 25.7893 27.4142 25.4142C27.7893 25.0391 28 24.5304 28 24V18C28 17.4696 27.7893 16.9609 27.4142 16.5858C27.0391 16.2107 26.5304 16 26 16Z"
-                                fill="#D0920B" />
-                        </svg>
-                        <p class="slider-card-text mt-4">
-                            “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore “
-                        </p>
-                        <div class="d-flex mb-2">
-                            <img src="{{ url('/img/testimonials/1.png') }}" alt="logo" class="w-25 me-3">
-                            <div class="">
-                                <h3>De Paula</h3>
-                                <div class="reguler-text position">CEO of OldTwitter</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="slider-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path
-                                d="M12 16H6.11C6.29585 14.7623 6.73779 13.577 7.40759 12.5198C8.07739 11.4626 8.96033 10.5567 10 9.86L11.79 8.66L10.69 7L8.9 8.2C7.39328 9.20408 6.15771 10.5646 5.30293 12.1607C4.44816 13.7569 4.00061 15.5394 4 17.35V24C4 24.5304 4.21071 25.0391 4.58579 25.4142C4.96086 25.7893 5.46957 26 6 26H12C12.5304 26 13.0391 25.7893 13.4142 25.4142C13.7893 25.0391 14 24.5304 14 24V18C14 17.4696 13.7893 16.9609 13.4142 16.5858C13.0391 16.2107 12.5304 16 12 16ZM26 16H20.11C20.2959 14.7623 20.7378 13.577 21.4076 12.5198C22.0774 11.4626 22.9603 10.5567 24 9.86L25.79 8.66L24.7 7L22.9 8.2C21.3933 9.20408 20.1577 10.5646 19.3029 12.1607C18.4482 13.7569 18.0006 15.5394 18 17.35V24C18 24.5304 18.2107 25.0391 18.5858 25.4142C18.9609 25.7893 19.4696 26 20 26H26C26.5304 26 27.0391 25.7893 27.4142 25.4142C27.7893 25.0391 28 24.5304 28 24V18C28 17.4696 27.7893 16.9609 27.4142 16.5858C27.0391 16.2107 26.5304 16 26 16Z"
-                                fill="#D0920B" />
-                        </svg>
-                        <p class="slider-card-text mt-4">
-                            “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore “
-                        </p>
-                        <div class="d-flex mb-2">
-                            <img src="{{ url('/img/testimonials/2.png') }}" alt="logo" class="w-25 me-3">
-                            <div class="">
-                                <h3>Guma</h3>
-                                <div class="reguler-text position">Founder & CEO of Pinpin</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <section id="contact">
         <div class="container">
             <div class="contact">
                 <h2 class="text-contact">Ready to Bring Your Imagination to Life? Get in Touch with Us
                 </h2>
-                <a href="https://wa.me/083134339542">
+                <a href="https://wa.me/6285702750455">
                     <button class="button-secondary">Contact Us
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path
@@ -470,15 +389,15 @@
                             info.cinurawa@gmail.com
                         </div>
                         <div class="medsos">
-                            <a href="#">
+                            <a href="">
                                 <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
                             </a>
-                            <a href="#">
+                            <a href="https://twitter.com/BirawaCitra">
                                 <img src="{{ url('/img/icon-medsos/twitter.svg') }}" alt="" class="icon-medsos">
                             </a>
 
-                            <a href="#">
-                                <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="">
+                            <a href="https://www.instagram.com/cinurawa.id/">
+                                <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="" class="icon-medsos">
                             </a>
                         </div>
                     </div>

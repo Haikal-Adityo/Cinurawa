@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/fav-icon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="assets/img/fav-icon.png') }}" type="image/x-icon">
-    <title>Blog Page Cinurawa</title>
+    <title>Blog Page - CINURAWA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="{{ url('/img/logo-black.png') }}">
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                         <a class="nav-link" href="{{ route('services') }}">Services</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="{{ route('portfolio') }}">Portofolio</a>
+                        <a class="nav-link" href="{{ route('portofolio.index') }}">Portofolio</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
                         <a class="nav-link active" href="#">Blog</a>
@@ -387,15 +388,14 @@
                             info.cinurawa@gmail.com
                         </div>
                         <div class="medsos">
-                            <a href="#">
+                            <a href="">
                                 <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
                             </a>
-                            <a href="#">
+                            <a href="https://twitter.com/BirawaCitra">
                                 <img src="{{ url('/img/icon-medsos/twitter.svg') }}" alt="" class="icon-medsos">
                             </a>
-
-                            <a href="#">
-                                <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="">
+                            <a href="https://www.instagram.com/cinurawa.id/">
+                                <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="" class="icon-medsos">
                             </a>
                         </div>
                     </div>

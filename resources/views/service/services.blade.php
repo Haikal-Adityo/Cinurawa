@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services Cinurawa</title>
+    <title>Services - CINURAWA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
+    <link rel="icon" href="{{ url('/img/logo-black.png') }}">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
                         <a class="nav-link active" href="#">Services</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
-                        <a class="nav-link" href="{{ route('portfolio') }}">Portofolio</a>
+                        <a class="nav-link" href="{{ route('portofolio.index') }}">Portofolio</a>
                     </li>
                     <li class="nav-item" style="margin-right: 32px;">
                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>
@@ -149,10 +150,16 @@
                             cinurawa@gmail.com <br>
                             info.cinurawa@gmail.com
                         </div>
-                        <div class="mt-24">
-                            <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
-                            <img src="{{ url('/img/icon-medsos/twitter.svg') }}" alt="" class="icon-medsos">
-                            <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="">
+                        <div class="medsos">
+                            <a href="">
+                                <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
+                            </a>
+                            <a href="https://twitter.com/BirawaCitra">
+                                <img src="{{ url('/img/icon-medsos/twitter.svg') }}" alt="" class="icon-medsos">
+                            </a>
+                            <a href="https://www.instagram.com/cinurawa.id/">
+                                <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="" class="icon-medsos">
+                            </a>
                         </div>
                     </div>
 

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PortofolioController;
 
@@ -15,19 +18,12 @@ use App\Http\Controllers\PortofolioController;
 */
 
 // * WEB
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::redirect('/index', '/', 301);
 
-Route::redirect('/index', '/', 301); // Redirect /index to /
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
-
-Route::get('/about-us', function () {
-    return view('about-us');
-})->name('about');
+Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 
 
 // * PORTOFOLIO

@@ -74,7 +74,6 @@ class PortofolioResource extends Resource
                 TextColumn::make('content')
                     ->words(20)
                     ->html(),
-                    
                 IconColumn::make('is_published')->boolean(),
                 ImageColumn::make('image'),
             ])
