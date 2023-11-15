@@ -7,6 +7,7 @@ use App\Filament\Resources\PortofolioResource\RelationManagers;
 use App\Models\Portofolio;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -49,7 +50,8 @@ class PortofolioResource extends Resource
 
                     TextInput::make('sub_title')->required(),
 
-                    TinyEditor::make('content'),
+                    RichEditor::make('content')
+                        ->fileAttachmentsDirectory('portofolio-attachments'),
 
                     FileUpload::make('image')
                         ->preserveFilenames()
@@ -72,7 +74,7 @@ class PortofolioResource extends Resource
                 TextColumn::make('title')->searchable(),
                 TextColumn::make('sub_title'),
                 TextColumn::make('content')
-                    ->words(20)
+                    ->limit(50)
                     ->html(),
                 IconColumn::make('is_published')->boolean(),
                 ImageColumn::make('image'),

@@ -35,6 +35,21 @@ class PostController extends Controller
         return view('blog.blog-detail', compact('post', 'categories', 'tags'));
     }
 
+    public function showLatest()
+    {
+        $posts = Post::with('category', 'tags')
+            ->where('is_published', true)
+            ->latest('created_at')
+            ->get();
+    
+        $categories = Category::distinct()->get();
+        $categoryModel = new Category(['name' => 'Latest Posts']);
+
+        return view('blog.blog-category', compact('posts', 'categories', 'categoryModel'));
+    }
+
+
+
     public function showCategory($category)
     {
         $categoryModel = Category::where('name', $category)->firstOrFail();

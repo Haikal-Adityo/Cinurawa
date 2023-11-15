@@ -22,9 +22,15 @@ use App\Http\Controllers\PostController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::redirect('/index', '/', 301);
 
-Route::get('/services', [ServicesController::class, 'index'])->name('services');
-
 Route::get('/about-us', [AboutController::class, 'index'])->name('about');
+
+
+//* SERVICES
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
+Route::get('/services/propertio', [ServicesController::class, 'propertio'])->name('services.propertio');
+Route::get('/services/augmented-reality', [ServicesController::class, 'augmentedReality'])->name('services.augmented-reality');
+Route::get('/services/virtual-reality', [ServicesController::class, 'virtualReality'])->name('services.virtual-reality');
+Route::get('/services/mixed-reality', [ServicesController::class, 'mixedReality'])->name('services.mixed-reality');
 
 
 // * PORTOFOLIO
@@ -36,4 +42,5 @@ Route::get('/portofolio/{slug}', [PortofolioController::class, 'show'])->name('p
 Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [PostController::class, 'show'])->name('blog.show');
 Route::get('/category/{category}', [PostController::class, 'showCategory'])->name('blog.category');
+Route::get('/latest', [PostController::class,'showLatest'])->name('blog.latest');
 Route::get('/search', [PostController::class, 'search'])->name('blog.search');

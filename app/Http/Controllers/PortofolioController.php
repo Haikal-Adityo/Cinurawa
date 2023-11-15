@@ -15,13 +15,13 @@ class PortofolioController extends Controller
 
     public function show($slug)
     {
-        $portfolio = Portofolio::where('slug', $slug)->first();
+        $portofolio = Portofolio::where('slug', $slug)->first();
 
-        if (!$portfolio || !$portfolio->is_published) {
+        if (!$portofolio || !$portofolio->is_published) {
             abort(404);
         }
 
-        return view('portofolio.portofolio-detail', compact('portfolio'));
+        return view('portofolio.portofolio-detail', compact('portofolio'));
     }
 
 }

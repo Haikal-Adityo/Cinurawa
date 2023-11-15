@@ -57,7 +57,7 @@
             <div class="row search-container">
                 <div class="col-md-8">
                     <div class="row row-search">
-                        {{-- <div class="col"><a href="{{ route('home') }}">Home</a></div> --}}
+                        <div class="col"><a href="#">Home</a></div>
                         @foreach($categories as $navCategory)
                             <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a></div>
                         @endforeach
@@ -84,7 +84,7 @@
         </div>
     </section>
 
-    {{-- *LATEST ====================================================================================--}}
+    {{-- *LATEST POST ====================================================================================--}}
 
     <section id="blog-content">
         <div class="container">
@@ -93,7 +93,7 @@
                     <h2>Latest</h2>
                 </div>
                 <div class="col-md-4 text-end see">
-                    <a href="#">
+                    <a href="{{ route('blog.latest') }}">
                         See All
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="15" viewBox="0 0 33 15" fill="none">
                             <path
@@ -112,21 +112,23 @@
                             <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
                         </a>
 
-                        @if($post->category && $post->category->name == 'Property')
-                            <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
-                        @elseif($post->category && $post->category->name == 'Financial')
-                            <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label">
-                        @elseif($post->category && $post->category->name == 'Architecture')
-                            <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label">
-                        @elseif($post->category && $post->category->name == 'Creativity')
-                            <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label">
-                        @elseif($post->category && $post->category->name == 'Lifestyle')
-                            <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label">
-                        @elseif($post->category && $post->category->name == 'Culture')
-                            <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
-                        @else
-                            <img src="{{ url('/img/blogs/default-label.png') }}" alt="" class="img-blog-label">
-                        @endif
+                        <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
+                            @if($post->category && $post->category->name == 'Property')
+                                <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-24">
+                            @elseif($post->category && $post->category->name == 'Financial')
+                                <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label mt-24">
+                            @elseif($post->category && $post->category->name == 'Architecture')
+                                <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label mt-24">
+                            @elseif($post->category && $post->category->name == 'Creativity')
+                                <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label mt-24">
+                            @elseif($post->category && $post->category->name == 'Lifestyle')
+                                <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label mt-24">
+                            @elseif($post->category && $post->category->name == 'Culture')
+                                <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label mt-24">
+                            @else
+                                <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                            @endif
+                        </a>
 
                         <div class="title">{{ $post->title }}</div>
                         <div class="sub-title">{{ $post->created_at->diffForHumans() }}</div>
@@ -137,7 +139,7 @@
         </div>
     </section>
 
-    {{-- *CATEGORIES ====================================================================================--}}
+    {{-- *POST CATEGORIES ====================================================================================--}}
 
     @foreach($categories as $category)
     @php
@@ -151,7 +153,7 @@
                         <h2>{{ $category->name }}</h2>
                     </div>
                     <div class="col-md-4 text-end see">
-                        <a href="#">
+                        <a href="{{ route('blog.category', ['category' => $category->name]) }}">
                             See All
                             <svg xmlns="http://www.w3.org/2000/svg" width="33" height="15" viewBox="0 0 33 15" fill="none">
                                 <path
@@ -169,24 +171,26 @@
                                 <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
                             </a>
 
-                            @if($post->category && $post->category->name == 'Property')
-                                <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Financial')
-                                <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Architecture')
-                                <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Creativity')
-                                <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Lifestyle')
-                                <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Culture')
-                                <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
-                            @else
-                                <img src="{{ url('/img/blogs/default-label.png') }}" alt="" class="img-blog-label">
-                            @endif
+                            <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
+                                @if($post->category && $post->category->name == 'Property')
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Financial')
+                                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Architecture')
+                                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Creativity')
+                                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Lifestyle')
+                                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Culture')
+                                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @else
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                                @endif
+                            </a>
 
                             <div class="title">{{ $post->title }}</div>
-                            <div class="sub-title">{{ $post->created_at->diffForHumans() }}</div>
+                            <div class="sub-title">{{ $post->created_at->format('d F Y') }}</div>
                         </div>
                     @endforeach
                 </div>
@@ -194,26 +198,30 @@
                 <div class="row  mt-5">
                     @foreach($category->posts->sortByDesc('created_at')->skip(2)->take(3) as $post)
                         <div class="col-md-4">
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                            <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
+                                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                            </a>
 
-                            @if($post->category && $post->category->name == 'Property')
-                                <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Financial')
-                                <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Architecture')
-                                <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Creativity')
-                                <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Lifestyle')
-                                <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label">
-                            @elseif($post->category && $post->category->name == 'Culture')
-                                <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
-                            @else
-                                <img src="{{ url('/img/blogs/default-label.png') }}" alt="" class="img-blog-label">
-                            @endif
+                            <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
+                                @if($post->category && $post->category->name == 'Property')
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Financial')
+                                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Architecture')
+                                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Creativity')
+                                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Lifestyle')
+                                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @elseif($post->category && $post->category->name == 'Culture')
+                                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label mt-24">
+                                @else
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                                @endif
+                            </a>
 
                             <div class="title">{{ $post->title }}</div>
-                            <div class="sub-title">{{ $post->created_at->diffForHumans() }}</div>
+                            <div class="sub-title">{{ $post->created_at->format('d F Y') }}</div>
                         </div>
                     @endforeach
                 </div>

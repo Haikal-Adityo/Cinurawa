@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/fav-icon.png" type="image/x-icon">
     <link rel="shortcut icon" href="assets/img/fav-icon.png" type="image/x-icon">
-    <title>Detail Portfolio Cinurawa</title>
+    <title>Landing Page Cinurawa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
@@ -45,43 +45,27 @@
     </nav>
 
     <section id="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 hero-card hero2">
-                    <div class="sub-heading">
-                        Our Portofolio
-                    </div>
-                    <div class="reguler-text  mb-3">
-                        {{ $portofolio->created_at->format('d F Y') }}
-                    </div>
-                    <h1>
-                        {{ $portofolio->title }}
-                    </h1>
-                    <p>
-                        {{ $portofolio->sub_title }}
-                    </p>
-                </div>
-                <div class="col-md-6 hero1 text-end">
-                    <div class="hero-card">
-                        <img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}" class="img-fluid rounded">
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        @yield('hero')
+
     </section>
 
-    <section class="detail-portofolio">
+    <section class="detail-services">
 
-        <div class="detail-services">
-            <div class="sub-heading">
-                {{ $portofolio->sub_title }}
-            </div>
-            <h2 class="mb-3">{{ $portofolio->title }}</h2>
-            <div class="reguler-text pb-3">
-                {!! $portofolio->content !!}
-            </div>
-        </div>
+        @yield('services-detail')
+        
+    </section>
 
+    <section id="value-services">
+
+        @yield('services-value')
+            
+    </section>
+
+    <section id="portfolio">
+            
+        @yield('documentation')
+            
     </section>
 
     <section>
@@ -89,7 +73,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img src="assets/img/logo.svg" alt="" class="mb-3">
+                        <img src="{{ url('/img/logo.svg') }}" alt="" class="mb-3">
                         <div class="reguler-text">
                             +62 857-0275-0455 <br>
                             cinurawa@gmail.com <br>
