@@ -303,6 +303,10 @@ section {
     padding-left: 250px;
 }
 
+.contact button {
+    border-radius: 8px;
+}
+
 #reviews {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -600,6 +604,13 @@ footer a {
     padding-top: 50px;
 }
 
+.img-portofolio {
+    height: 280px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 
 /* Abous Us */
 .text-about {
@@ -784,8 +795,18 @@ footer a {
     margin-bottom: 64px;
 }
 
+#row-1 .img-blog{
+    height: 380px;
+}
+
+.img-blog {
+    height: 280px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 .img-blog-label {
-    /* margin-top: 24px; */
     margin-bottom: 8px;
 }
 
@@ -833,6 +854,15 @@ footer a {
 /* Blog Detail */
 .tag {
     margin-top: 64px;
+}
+
+.breadcrumb {
+    white-space: nowrap;
+}
+
+.breadcrumb-link:hover {
+    color: #D0920B;
+    text-decoration: none;
 }
 
 

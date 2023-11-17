@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+use Carbon\Carbon;
 
 class PostsRelationManager extends RelationManager
 {
@@ -38,19 +39,26 @@ class PostsRelationManager extends RelationManager
                         ->relationship('category', 'name'),
 
                     TextInput::make('title')
-                        ->live()
-                        ->reactive()
+                        ->live(onBlur: true)
                         ->afterStateUpdated(fn (Set $set, ?string $state) => 
                             $set('slug', Str::slug($state)))
                         ->required(),
-
-                    TextInput::make('slug')->required(),
+                        
+                    TextInput::make('slug')->disabled(),
 
                     FileUpload::make('thumbnail')
                         ->directory('blog-thumbnails')
-                        ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string{
-                            return (string) str($file->getClientOriginalName())->prepend(now()->timestamp);
-                        })->required(),
+                        ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                            $originalName = $file->getClientOriginalName();
+                            $timestamp = now()->timestamp;
+
+                            $formattedTimestamp = Carbon::createFromTimestamp($timestamp)->format('Y-m-d_H-i-s');
+
+                            $newFileName = str($originalName)->prepend($formattedTimestamp);
+
+                            return (string) $newFileName;
+                        })
+                        ->required(),
 
                     RichEditor::make('content'),
 

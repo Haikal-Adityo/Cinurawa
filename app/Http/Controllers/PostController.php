@@ -12,7 +12,6 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with('category', 'tags')
-            ->where('is_published', true)
             ->get();
 
         $categories = Category::distinct()->get();
@@ -51,13 +50,33 @@ class PostController extends Controller
 
 
     public function showCategory($category)
-    {
-        $categoryModel = Category::where('name', $category)->firstOrFail();
-        $posts = $categoryModel->posts()->where('is_published', true)->orderBy('created_at', 'desc')->get();
-        $categories = Category::distinct()->get();
+{
+    $categoryModel = Category::where('name', $category)->firstOrFail();
+    $posts = $categoryModel->posts()
+        ->where('is_published', true)
+        ->orderBy('created_at', 'desc')
+        ->get();
 
-        return view('blog.blog-category', compact('posts', 'categories', 'categoryModel'));
+        foreach ($posts as $post) {
+            // Strip HTML tags and limit the content to 30 words
+            $contentWithoutTags = strip_tags($post->content);
+            $words = str_word_count($contentWithoutTags, 1);
+            $truncatedContent = implode(' ', array_slice($words, 0, 30));
+    
+            // Add "..." if the original content has more than 30 words
+            if (count($words) > 30) {
+                $truncatedContent .= '...';
+            }
+    
+            // Replace the original content with the truncated and formatted version
+            $post->content = $truncatedContent;
     }
+
+    $categories = Category::distinct()->get();
+
+    return view('blog.blog-category', compact('posts', 'categories', 'categoryModel'));
+}
+
 
 
     public function search(Request $request)

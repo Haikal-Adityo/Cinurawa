@@ -283,7 +283,7 @@
                 @foreach($portfolios->sortByDesc('created_at')->take(6) as $portfolio)
                     <div class="col-md-4 frame">
                         <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
-                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid rounded">
+                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
                             <h3 class="title">{{ $portfolio->title }}</h3>
                             <div class="reguler-text sub-title">
                                 {{ $portfolio->created_at->format('d F Y') }}
@@ -310,10 +310,10 @@
                 Reviews
             </div>
             <h2 class="text-center">What They says</h2>
-            <!-- <div class="reguler-text text-center text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.
-            </div> -->
+                {{-- <div class="reguler-text text-center text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua.
+                </div> --}}
             <div class="slider">
                 <div class="owl-carousel">
                     <div class="slider-card">

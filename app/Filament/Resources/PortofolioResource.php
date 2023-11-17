@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+use Carbon\Carbon;
 
 class PortofolioResource extends Resource
 {
@@ -41,12 +42,11 @@ class PortofolioResource extends Resource
                 Section::make()->schema([
                     TextInput::make('title')
                         ->live(onBlur: true)
-                        ->reactive()
                         ->afterStateUpdated(fn (Set $set, ?string $state) => 
                             $set('slug', Str::slug($state)))
                         ->required(),
-
-                    TextInput::make('slug')->required(),
+                        
+                    TextInput::make('slug')->disabled(),
 
                     TextInput::make('sub_title')->required(),
 
@@ -56,8 +56,15 @@ class PortofolioResource extends Resource
                     FileUpload::make('image')
                         ->preserveFilenames()
                         ->directory('portofolio-images')
-                        ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string{
-                            return (string) str($file->getClientOriginalName())->prepend(now()->timestamp);
+                        ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                            $originalName = $file->getClientOriginalName();
+                            $timestamp = now()->timestamp;
+
+                            $formattedTimestamp = Carbon::createFromTimestamp($timestamp)->format('Y-m-d_H-i-s');
+
+                            $newFileName = str($originalName)->prepend($formattedTimestamp);
+
+                            return (string) $newFileName;
                         })
                         ->required(),
                         

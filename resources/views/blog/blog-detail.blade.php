@@ -74,7 +74,13 @@
 
     <section class="detail-portofolio">
         <div class="detail-services">
-            <div class="light-body-text mb-3">Home / {{ $post->category->name }} / {{ $post->title }}</div>
+            <div class="light-body-text mb-3 breadcrumb">
+                <a href="{{ route('home') }}" class="breadcrumb-link">Home</a> &nbsp;/&nbsp;
+                <a href="{{ route('blog.category', ['category' => $post->category->name]) }}" class="breadcrumb-link">
+                   {{ $post->category->name }} 
+                </a> &nbsp;/&nbsp; {{ $post->title }}
+            </div>            
+            
             <h2 class="mb-3">{{ $post->title }}</h2>
             <div class="d-flex">
 
@@ -101,6 +107,7 @@
                 </div>
             </div>
             <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid mt-4">
+
             <div class="reguler-text mt-5">
                 {!! $post->content !!}
             </div>

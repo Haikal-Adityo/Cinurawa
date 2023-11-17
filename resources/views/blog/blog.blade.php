@@ -90,7 +90,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h2>Latest</h2>
+                    <a href="{{ route('blog.latest') }}">
+                        <h2>Latest</h2>
+                    </a>
                 </div>
                 <div class="col-md-4 text-end see">
                     <a href="{{ route('blog.latest') }}">
@@ -106,10 +108,10 @@
 
             <div class="row">
 
-                @foreach($posts->sortByDesc('created_at')->take(3) as $post)
+                @foreach($posts->sortByDesc('created_at')->where('is_published', true)->take(3) as $post)
                     <div class="col-md-4">
                         <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid img-blog">
                         </a>
 
                         <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
@@ -150,7 +152,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h2>{{ $category->name }}</h2>
+                        <a href="{{ route('blog.category', ['category' => $category->name]) }}">
+                            <h2>{{ $category->name }}</h2>
+                        </a>
                     </div>
                     <div class="col-md-4 text-end see">
                         <a href="{{ route('blog.category', ['category' => $category->name]) }}">
@@ -165,10 +169,10 @@
                 </div>
 
                 <div class="row">
-                    @foreach($category->posts->sortByDesc('created_at')->take(2) as $post)
-                        <div class="col-md-6">
+                    @foreach($category->posts->sortByDesc('created_at')->where('is_published', true)->take(2) as $post)
+                        <div class="col-md-6" id="row-1" >
                             <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
-                                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid img-blog">
                             </a>
 
                             <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
@@ -196,10 +200,10 @@
                 </div>
 
                 <div class="row  mt-5">
-                    @foreach($category->posts->sortByDesc('created_at')->skip(2)->take(3) as $post)
+                    @foreach($category->posts->sortByDesc('created_at')->where('is_published', true)->skip(2)->take(3) as $post)
                         <div class="col-md-4">
                             <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
-                                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid img-blog">
                             </a>
 
                             <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">

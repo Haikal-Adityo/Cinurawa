@@ -90,14 +90,14 @@
                 <div class="row mt-5">
                     <div class="col-md-4">
                         <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid img-blog">
                         </a>
                     </div>
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-9">
-                                <div class="blog-category-title">{{ $post->title }}</div>
-                                <div class="blog-category-subtitle">{!! $post->content !!} </div>
+                                <div class="blog-category-title mb-2">{{ $post->title }}</div>
+                                <div class="blog-category-subtitle">{!! $post->content !!}</div>
                                 <div class="blog-category-time d-flex">
                                     
                                     <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
