@@ -67,7 +67,7 @@
                             </svg>
                         </button>
                     </a>
-                    <a href="{{ route('services') }}">
+                    <a href="#introduction">
                         <button class="button-secondary">Explore Now
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                                 <path
@@ -278,10 +278,10 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" id="portfolioContainer">
 
-                @foreach($portfolios->sortByDesc('created_at')->take(6) as $portfolio)
-                    <div class="col-md-4 frame">
+                @foreach($portfolios->sortByDesc('created_at')->take(3) as $portfolio)
+                    <div class="col-md-4">
                         <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
                             <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
                             <h3 class="title">{{ $portfolio->title }}</h3>
@@ -291,16 +291,27 @@
                         </a>
                     </div>
                 @endforeach
-
-            </div>
+            
+                @foreach($portfolios->sortByDesc('created_at')->skip(3) as $portfolio)
+                    <div class="col-md-4 frame special-frame">
+                        <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
+                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
+                            <h3 class="title">{{ $portfolio->title }}</h3>
+                            <div class="reguler-text sub-title">
+                                {{ $portfolio->created_at->format('d F Y') }}
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            
+            </div>            
 
             <div class="button">
-                <a href="{{ route('portofolio.index') }}">
-                    <button>
-                        View More
-                    </button>
-                </a>
+                <button id="loadMore">
+                    View More
+                </button>
             </div>
+            
         </div>
     </section>
 
