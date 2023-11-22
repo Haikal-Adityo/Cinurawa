@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand fw-bold" href="{{ route('home') }}">
                 <img src="{{ url('/img/logo.svg') }}" alt="Logo Cinurawa">
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-6 hero1 text-end">
                     <div class="hero-card">
-                        <img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}" class="img-fluid rounded">
+                        <img src="{{ asset('storage/' . $portofolio->thumbnail) }}" alt="{{ $portofolio->title }}" class="img-fluid rounded">
                     </div>
                 </div>
             </div>
