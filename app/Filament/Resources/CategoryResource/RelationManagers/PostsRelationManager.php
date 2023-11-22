@@ -47,7 +47,7 @@ class PostsRelationManager extends RelationManager
                     TextInput::make('slug')->disabled(),
 
                     FileUpload::make('thumbnail')
-                        ->directory('blog-thumbnails')
+                        ->directory('blog/blog-thumbnails')
                         ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                             $originalName = $file->getClientOriginalName();
                             $timestamp = now()->timestamp;
@@ -60,7 +60,8 @@ class PostsRelationManager extends RelationManager
                         })
                         ->required(),
 
-                    RichEditor::make('content'),
+                    RichEditor::make('content')
+                        ->fileAttachmentsDirectory('blog/blog-attachments'),
 
                     Toggle::make('is_published'),
                 ])

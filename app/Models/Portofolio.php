@@ -13,7 +13,7 @@ class Portofolio extends Model
         'title',
         'slug',
         'sub_title',
-        'image',
+        'thumbnail',
         'content',
         'is_published',
     ];

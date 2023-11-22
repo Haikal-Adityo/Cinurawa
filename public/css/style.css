@@ -174,6 +174,7 @@ button {
 
 section {
     background-color: var(--theme-base);
+    padding-bottom: 200px;
 }
 
 
@@ -215,7 +216,6 @@ section {
     box-shadow: 0px 20px 100px 0px rgba(125, 120, 197, 0.10);
 }
 
-
 #portfolio {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -256,6 +256,17 @@ section {
     gap: 10px;
     border-radius: 4px;
     border: 1px solid var(--theme-secondary, #041827);
+}
+
+#portfolioContainer .frame {
+    display: none;
+    visibility: hidden;
+    transition: visibility 3s ease-in-out;
+}
+
+#portfolioContainer.show-portfolio .frame {
+    display: block;
+    visibility: visible;
 }
 
 .contact {
@@ -305,6 +316,7 @@ section {
 
 .contact button {
     border-radius: 8px;
+    border: none !important;
 }
 
 #reviews {

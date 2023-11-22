@@ -35,6 +35,8 @@ class PortofolioResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Portofolio';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -50,12 +52,9 @@ class PortofolioResource extends Resource
 
                     TextInput::make('sub_title')->required(),
 
-                    RichEditor::make('content')
-                        ->fileAttachmentsDirectory('portofolio-attachments'),
-
-                    FileUpload::make('image')
+                    FileUpload::make('thumbnail')
                         ->preserveFilenames()
-                        ->directory('portofolio-images')
+                        ->directory('portofolio/portofolio-thumbnails')
                         ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                             $originalName = $file->getClientOriginalName();
                             $timestamp = now()->timestamp;
@@ -67,6 +66,9 @@ class PortofolioResource extends Resource
                             return (string) $newFileName;
                         })
                         ->required(),
+
+                    RichEditor::make('content')
+                        ->fileAttachmentsDirectory('portofolio/portofolio-attachments'),
                         
                     Toggle::make('is_published'),
 
@@ -84,7 +86,7 @@ class PortofolioResource extends Resource
                     ->limit(50)
                     ->html(),
                 IconColumn::make('is_published')->boolean(),
-                ImageColumn::make('image'),
+                ImageColumn::make('thumbnail'),
             ])
             ->filters([
                 Filter::make('Published')
