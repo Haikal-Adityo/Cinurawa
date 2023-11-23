@@ -59,7 +59,7 @@ nav .active {
 #hero {
     padding-top: 172px;
     background: linear-gradient(180deg, rgba(245, 247, 252, 0.00) 69.27%, #F5F7FC 100%), linear-gradient(90deg, #F6F6F6 0%, #EFF4FF 18.89%, #FFF5FC 47.22%, #F6FCF8 72.4%, #F5F7FC 100%);
-    padding-bottom: 100px;
+    padding-bottom: 40px;
 }
 
 #hero h1 {
@@ -99,7 +99,7 @@ h2 {
     font-size: 48px;
     font-weight: 700;
     line-height: 64px;
-    letter-spacing: -0.96px;
+    letter-spacing: -0.06rem;
 }
 
 h3 {
@@ -160,9 +160,14 @@ button {
     border: none;
 }
 
+.button-primary:hover{
+    background: #9C6B00;
+}
+
 .button-secondary {
     color: #041827;
     font-family: Manrope;
+    background: transparent;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.32px;
@@ -170,16 +175,48 @@ button {
     border: 1px solid var(--theme-secondary, #041827);
 }
 
+.button-secondary:hover{
+    color: white;
+    background: var(--theme-secondary);
+    border: none;
+}
+
+.button-secondary:hover svg path {
+    fill: white;
+}
+
+.button-light {
+    color:var(--text-primary);
+    font-family: Manrope;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.32px;
+    border-radius: 4px;
+    background: #F5F7FC;
+    border: none;
+}
+
+
+.button-light:hover{
+    color: white;
+    background: var(--theme-secondary);
+    border: none;
+}
+
+.button-light:hover svg path {
+    fill: white;
+}
+
+
 /* Akhir Design System */
 
 section {
     background-color: var(--theme-base);
-    padding-bottom: 200px;
 }
 
 
 #introduction {
-    padding-top: 40px;
+    padding-top: 100px;
     padding-bottom: 100px;
 }
 
@@ -198,10 +235,14 @@ section {
     margin-top: 100px;
 }
 
+.content-services .col-md-6 a h3:hover {
+    color: var(--theme-primary);
+}
+
 
 #why {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .card-why {
@@ -217,8 +258,8 @@ section {
 }
 
 #portfolio {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 #portfolio .see {
@@ -259,6 +300,7 @@ section {
 }
 
 #portfolioContainer .frame {
+    margin-top: 32px;
     display: none;
     visibility: hidden;
     transition: visibility 3s ease-in-out;
@@ -269,10 +311,14 @@ section {
     visibility: visible;
 }
 
-.contact {
+#contact{
+    padding-bottom: 100px;
+}
+
+.card-contact {
     border-radius: 16px;
     background: linear-gradient(94deg, #D0920B -5.85%, #D0BC0B 51.64%, #CCD00B 112.43%);
-    color: #000;
+    color: #fff;
     display: flex;
     padding: 56px 0px;
     flex-direction: column;
@@ -280,7 +326,7 @@ section {
     gap: 48px;
 }
 
-.contact .text-contact {
+.card-contact .text-contact {
     color: #FFF;
     text-align: center;
     font-family: Manrope;
@@ -320,8 +366,8 @@ section {
 }
 
 #reviews {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 /* Carousel */
@@ -405,7 +451,6 @@ section {
 @media screen and (max-width: 768px) {
     .reguler-text {
         font-size: 14px;
-        line-height: 20px;
     }
 
     h2 {
@@ -433,6 +478,15 @@ section {
 
     .hero-card {
         padding-top: 50px;
+    }
+
+    #contact .card-contact h2.text-contact {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .card-contact .text-contact {
+        padding: 0px 32px;
     }
 
     .hero1 {
@@ -467,10 +521,10 @@ section {
         margin-bottom: 15px;
     }
 
-    #services {
+    /* #services {
         padding-top: 30px;
         padding-bottom: 0;
-    }
+    } */
 
     .content-services {
         margin-top: 40px;
@@ -498,15 +552,15 @@ section {
         margin-top: 0;
         padding: 14px 24px;
     }
-
+/* 
     #why {
         padding-top: 60px;
         padding-bottom: 20px;
-    }
+    } */
 
-    #reviews {
+    /* #reviews {
         padding-top: 0;
-    }
+    } */
 
     .contact .text-contact {
         font-size: 28px;
@@ -581,8 +635,7 @@ footer a {
 }
 
 .hero-services {
-    padding-left: 300px;
-    padding-right: 300px;
+    padding: 0px 300px;
 }
 
 .hero-services span {
@@ -630,7 +683,7 @@ footer a {
 }
 
 #vision {
-    padding: 100px 0px;
+    padding: 100px;
 }
 
 #vision .card-vision {
@@ -707,6 +760,7 @@ footer a {
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 0;
+    margin-bottom: 24px;
     /* Card shadow */
     box-shadow: 0px 20px 100px 0px rgba(125, 120, 197, 0.10);
 }
@@ -853,6 +907,9 @@ footer a {
     font-size: 16px;
     font-weight: 400;
     line-height: 36px;
+    max-height: 120px; /* Sesuaikan dengan tinggi maksimum yang Anda inginkan */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .blog-category-time {
@@ -888,6 +945,10 @@ footer a {
     .hero-services {
         padding-left: 15px;
         padding-right: 15px;
+    }
+
+    .blog-category-title{
+        padding-top: 16px;
     }
 
     .detail-services {
