@@ -76,11 +76,11 @@
         </div>
     </section>
 
-    <section>
+    <section class="pb-5">
         <div class="container">
             @if($posts->count() > 0)
                 <div class="d-flex mb-5">
-                    <div class="me-24"><img src="assets/img/blogs/blog-category.png" alt=""></div>
+                    <div class="me-24"><img src="{{ url('/img/blogs/blog-category.png') }}" alt=""></div>
                     <div>
                         <h2>{{ $categoryModel->name }}</h2>
                     </div>
@@ -97,7 +97,7 @@
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="blog-category-title mb-2">{{ $post->title }}</div>
-                                <div class="blog-category-subtitle">{!! $post->content !!}</div>
+                                <div class="blog-category-subtitle mb-3">{!! $post->content !!}</div>
                                 <div class="blog-category-time d-flex">
                                     
                                     <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
@@ -128,7 +128,13 @@
                 </div>
                 @endforeach
             @else
-            <p>Tidak ada</p>
+            <div class="d-flex pb-5">
+                <div class="me-24"><img src="{{ url('/img/blogs/category icon.png') }}" alt=""></div>
+                <div>
+                    <h2>{{ $categoryModel->name }}</h2>
+                    <div class="sub-heading pb-2">No blog content yet</div>
+                </div>
+            </div>
             @endif
         </div>
     </section>
@@ -138,7 +144,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img src="assets/img/logo.svg" alt="" class="mb-3">
+                        <img src="{{ url('/img/logo.svg') }}" alt="" class="mb-3">
                         <div class="reguler-text">
                             +62 857-0275-0455 <br>
                             cinurawa@gmail.com <br>

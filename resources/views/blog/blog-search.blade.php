@@ -78,7 +78,7 @@
 
     <section>
         <div class="container">
-            <div class="d-flex mb-5">
+            <div class="d-flex">
                 <div class="me-24"><img src="{{ url('/img/blogs/search.png') }}" alt=""></div>
                 <div>
                     <h3>Searching for : {{ $query }}</h3>
@@ -95,11 +95,11 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-9">
-                                <div class="blog-category-title">{{ $post->title }}</div>
-                                <div class="blog-category-subtitle">{!! $post->content !!} </div>
+                        <div class="col-md-9">
+                                <div class="blog-category-title mb-2">{{ $post->title }}</div>
+                                <div class="blog-category-subtitle mb-3">{!! $post->content !!}</div>
                                 <div class="blog-category-time d-flex">
-
+                                    
                                     <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
                                         @if($post->category && $post->category->name == 'Property')
                                             <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
@@ -118,7 +118,7 @@
                                         @endif
                                     </a>
 
-                                    <div class="reguler-text mt-4 ms-4">
+                                    <div class="reguler-text ms-4">
                                         {{ $post->created_at->diffForHumans() }}
                                     </div>
                                 </div>
@@ -127,7 +127,6 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
     </section>
 
@@ -136,7 +135,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img src="assets/img/logo.svg" alt="" class="mb-3">
+                        <img src="{{ url('/img/logo.svg') }}" alt="" class="mb-3">
                         <div class="reguler-text">
                             +62 857-0275-0455 <br>
                             cinurawa@gmail.com <br>

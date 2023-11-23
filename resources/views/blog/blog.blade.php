@@ -89,12 +89,12 @@
     <section id="blog-content">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6 col-6">
                     <a href="{{ route('blog.latest') }}">
-                        <h2>Latest</h2>
+                        <h2 class="mb-1">Latest</h2>
                     </a>
                 </div>
-                <div class="col-md-4 text-end see">
+                <div class="col-md-6 col-6 text-end see">
                     <a href="{{ route('blog.latest') }}">
                         See All
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="15" viewBox="0 0 33 15" fill="none">
@@ -109,7 +109,7 @@
             <div class="row">
 
                 @foreach($posts->sortByDesc('created_at')->where('is_published', true)->take(3) as $post)
-                    <div class="col-md-4">
+                    <div class="col-md-4 mt-5">
                         <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
                             <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid img-blog">
                         </a>
@@ -132,7 +132,9 @@
                             @endif
                         </a>
 
-                        <div class="title">{{ $post->title }}</div>
+                        <div>
+                            <a href="{{ route('blog.show', ['slug' => $post->slug]) }}"><h3>{{ $post->title }}</h3></a> 
+                        </div>
                         <div class="sub-title">{{ $post->created_at->diffForHumans() }}</div>
                     </div>
                 @endforeach
@@ -151,12 +153,12 @@
         <section id="blog-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6 col-6">
                         <a href="{{ route('blog.category', ['category' => $category->name]) }}">
-                            <h2>{{ $category->name }}</h2>
+                            <h2 class="mb-1">{{ $category->name }}</h2>
                         </a>
                     </div>
-                    <div class="col-md-4 text-end see">
+                    <div class="col-md-6 col-6 text-end see">
                         <a href="{{ route('blog.category', ['category' => $category->name]) }}">
                             See All
                             <svg xmlns="http://www.w3.org/2000/svg" width="33" height="15" viewBox="0 0 33 15" fill="none">
@@ -170,7 +172,7 @@
 
                 <div class="row">
                     @foreach($category->posts->sortByDesc('created_at')->where('is_published', true)->take(2) as $post)
-                        <div class="col-md-6" id="row-1" >
+                        <div class="col-md-6 mt-5" id="row-1" >
                             <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
                                 <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid img-blog">
                             </a>
@@ -193,15 +195,17 @@
                                 @endif
                             </a>
 
-                            <div class="title">{{ $post->title }}</div>
+                            <div>
+                                <a href="{{ route('blog.show', ['slug' => $post->slug]) }}"><h3>{{ $post->title }}</h3></a> 
+                            </div>
                             <div class="sub-title">{{ $post->created_at->format('d F Y') }}</div>
                         </div>
                     @endforeach
                 </div>
 
-                <div class="row  mt-5">
+                <div class="row">
                     @foreach($category->posts->sortByDesc('created_at')->where('is_published', true)->skip(2)->take(3) as $post)
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-5">
                             <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
                                 <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid img-blog">
                             </a>
@@ -224,7 +228,9 @@
                                 @endif
                             </a>
 
-                            <div class="title">{{ $post->title }}</div>
+                            <div>
+                                <a href="{{ route('blog.show', ['slug' => $post->slug]) }}"><h3>{{ $post->title }}</h3></a> 
+                            </div>
                             <div class="sub-title">{{ $post->created_at->format('d F Y') }}</div>
                         </div>
                     @endforeach
