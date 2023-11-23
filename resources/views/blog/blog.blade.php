@@ -52,7 +52,7 @@
         </div>
     </section>
 
-    <section id="search">
+    <section id="search" class="search-blog">
         <div class="container">
             <div class="row search-container">
                 <div class="col-md-8">
@@ -107,7 +107,6 @@
             </div>
 
             <div class="row">
-
                 @foreach($posts->sortByDesc('created_at')->where('is_published', true)->take(3) as $post)
                     <div class="col-md-4">
                         <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">

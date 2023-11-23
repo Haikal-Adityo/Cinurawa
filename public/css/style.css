@@ -542,7 +542,7 @@ footer a {
 
 .icon-medsos {
     margin-right: 32px;
-    
+
 }
 
 .search-icon {
@@ -795,7 +795,7 @@ footer a {
     margin-bottom: 64px;
 }
 
-#row-1 .img-blog{
+#row-1 .img-blog {
     height: 380px;
 }
 
@@ -942,9 +942,9 @@ footer a {
         padding-left: 10px;
     }
 
-    #search {
+    /* #search {
         margin-top: -100px;
-    }
+    } */
 
     .col {
         text-align: center;
@@ -955,5 +955,9 @@ footer a {
 
     .search {
         margin-top: 15px;
+    }
+
+    .search-blog {
+        margin-top: -100px;
     }
 }

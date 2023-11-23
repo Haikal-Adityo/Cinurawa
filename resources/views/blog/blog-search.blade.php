@@ -52,7 +52,8 @@
                     <div class="row row-search">
                         <div class="col"><a href="{{ route('blog.index') }}">Home</a></div>
                         @foreach($categories as $navCategory)
-                            <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a></div>
+                        <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{
+                                $navCategory->name }}</a></div>
                         @endforeach
                     </div>
                 </div>
@@ -87,45 +88,50 @@
             </div>
 
             @foreach($posts->where('is_published', true)->sortByDesc('created_at') as $post)
-                <div class="row mt-5">
-                    <div class="col-md-4">
-                        <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}"  class="img-fluid img-blog">
-                        </a>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="blog-category-title">{{ $post->title }}</div>
-                                <div class="blog-category-subtitle">{!! $post->content !!} </div>
-                                <div class="blog-category-time d-flex">
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
+                        <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}"
+                            class="img-fluid img-blog">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="blog-category-title">{{ $post->title }}</div>
+                            <div class="blog-category-subtitle">{!! $post->content !!} </div>
+                            <div class="blog-category-time d-flex">
 
-                                    <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
-                                        @if($post->category && $post->category->name == 'Property')
-                                            <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Financial')
-                                            <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Architecture')
-                                            <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Creativity')
-                                            <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Lifestyle')
-                                            <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Culture')
-                                            <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
-                                        @else
-                                            <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
-                                        @endif
-                                    </a>
+                                <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
+                                    @if($post->category && $post->category->name == 'Property')
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                                    @elseif($post->category && $post->category->name == 'Financial')
+                                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt=""
+                                        class="img-blog-label">
+                                    @elseif($post->category && $post->category->name == 'Architecture')
+                                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt=""
+                                        class="img-blog-label">
+                                    @elseif($post->category && $post->category->name == 'Creativity')
+                                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt=""
+                                        class="img-blog-label">
+                                    @elseif($post->category && $post->category->name == 'Lifestyle')
+                                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt=""
+                                        class="img-blog-label">
+                                    @elseif($post->category && $post->category->name == 'Culture')
+                                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
+                                    @else
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                                    @endif
+                                </a>
 
-                                    <div class="reguler-text mt-4 ms-4">
-                                        {{ $post->created_at->diffForHumans() }}
-                                    </div>
+                                <div class="reguler-text mt-4 ms-4">
+                                    {{ $post->created_at->diffForHumans() }}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
 
         </div>
@@ -136,7 +142,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img src="assets/img/logo.svg" alt="" class="mb-3">
+                        <img src="{{ url('/img/logo.svg') }}" alt="" class="mb-3">
                         <div class="reguler-text">
                             +62 857-0275-0455 <br>
                             cinurawa@gmail.com <br>
@@ -177,7 +183,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>
