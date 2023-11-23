@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-6 hero1 text-end">
                     <div class="hero-card">
-                        <img src="{{ asset('storage/' . $portofolio->thumbnail) }}" alt="{{ $portofolio->title }}" class="img-fluid rounded">
+                        <img src="{{ asset('storage/' . $portofolio->image) }}" alt="{{ $portofolio->title }}" class="img-fluid rounded">
                     </div>
                 </div>
             </div>

@@ -630,7 +630,7 @@ footer a {
 }
 
 #vision {
-    padding-top: 100px;
+    padding: 100px 0px;
 }
 
 #vision .card-vision {
@@ -876,8 +876,9 @@ footer a {
     color: #D0920B;
     text-decoration: none;
 }
-
-
+#about-us {
+    padding:100px 0px;
+}
 
 
 

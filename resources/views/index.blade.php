@@ -307,7 +307,7 @@
             </div>            
 
             <div class="button">
-                <button id="loadMore">
+                <button class="button-secondary" id="loadMore">
                     View More
                 </button>
             </div>
