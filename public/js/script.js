@@ -31,3 +31,9 @@ $(document).ready(function () {
         navigation: true
     });
 });
+
+$(document).ready(function () {
+    $('#loadMore').click(function () {
+        $('#portfolioContainer').toggleClass('show-portfolio');
+    });
+});

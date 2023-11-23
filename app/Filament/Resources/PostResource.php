@@ -61,7 +61,7 @@ class PostResource extends Resource
                     TextInput::make('slug')->disabled(),
 
                     FileUpload::make('thumbnail')->preserveFilenames()
-                        ->directory('blog-thumbnails')
+                        ->directory('blog/blog-thumbnails')
                         ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                             $originalName = $file->getClientOriginalName();
                             $timestamp = now()->timestamp;
@@ -73,7 +73,8 @@ class PostResource extends Resource
                             return (string) $newFileName;
                         })->required(),
 
-                    RichEditor::make('content'),
+                    RichEditor::make('content')
+                        ->fileAttachmentsDirectory('blog/blog-attachments'),
 
                     Toggle::make('is_published'),
                 ])
