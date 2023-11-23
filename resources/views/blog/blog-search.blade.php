@@ -96,7 +96,9 @@
                     <div class="col-md-8">
                         <div class="row">
                         <div class="col-md-9">
-                                <div class="blog-category-title mb-2">{{ $post->title }}</div>
+                                <div>
+                                    <a href="{{ route('blog.show', ['slug' => $post->slug]) }}"><h3>{{ $post->title }}</h3></a> 
+                                </div>
                                 <div class="blog-category-subtitle mb-3">{!! $post->content !!}</div>
                                 <div class="blog-category-time d-flex">
                                     
