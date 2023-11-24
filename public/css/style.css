@@ -157,11 +157,12 @@ button {
     letter-spacing: -0.32px;
     border-radius: 4px;
     background: var(--theme-primary, #D0920B);
-    border: none;
+    border: 1px solid #D0920B;
 }
 
 .button-primary:hover{
     background: #9C6B00;
+    border: 1px solid #9C6B00;
 }
 
 .button-secondary {
@@ -173,12 +174,12 @@ button {
     letter-spacing: -0.32px;
     border-radius: 4px;
     border: 1px solid var(--theme-secondary, #041827);
+
 }
 
 .button-secondary:hover{
     color: white;
     background: var(--theme-secondary);
-    border: none;
 }
 
 .button-secondary:hover svg path {
@@ -193,14 +194,14 @@ button {
     letter-spacing: -0.32px;
     border-radius: 4px;
     background: #F5F7FC;
-    border: none;
+    border: 1px solid #F5F7FC;
 }
 
 
 .button-light:hover{
     color: white;
     background: var(--theme-secondary);
-    border: none;
+    border: 1px solid var(--theme-secondary);
 }
 
 .button-light:hover svg path {

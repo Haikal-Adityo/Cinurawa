@@ -44,8 +44,19 @@ class PortofolioResource extends Resource
                 Section::make()->schema([
                     TextInput::make('title')
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn (Set $set, ?string $state) => 
-                            $set('slug', Str::slug($state)))
+                        ->afterStateUpdated(function (Set $set, ?string $state) {
+                            $slug = Str::slug($state);
+                    
+                            $count = Portofolio::where('slug', $slug)->count();
+                    
+                            if ($count > 0) {
+                                $maxSuffix = Portofolio::where('slug', 'REGEXP', '^' . $slug . '-[0-9]+$')->max('slug');
+                                $maxSuffix = $maxSuffix ? (int)substr($maxSuffix, strrpos($maxSuffix, '-') + 1) : 0;
+                                $slug = $slug . '-' . ($maxSuffix + 1);
+                            }
+                    
+                            $set('slug', $slug);
+                        })
                         ->required(),
                         
                     TextInput::make('slug')->disabled(),
@@ -65,6 +76,8 @@ class PortofolioResource extends Resource
 
                             return (string) $newFileName;
                         })
+                        ->image()
+                        ->imageEditor()
                         ->required(),
 
                     RichEditor::make('content')
@@ -124,5 +137,5 @@ class PortofolioResource extends Resource
             'edit' => Pages\EditPortofolio::route('/{record}/edit'),
         ];
     }
-    
+
 }

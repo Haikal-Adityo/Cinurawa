@@ -283,7 +283,7 @@
                 @foreach($portfolios->sortByDesc('created_at')->take(3) as $portfolio)
                     <div class="col-md-4 mt-5">
                         <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
-                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
+                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
                             <h3 class="title">{{ $portfolio->title }}</h3>
                             <div class="reguler-text sub-title">
                                 {{ $portfolio->created_at->format('d F Y') }}
@@ -295,7 +295,7 @@
                 @foreach($portfolios->sortByDesc('created_at')->skip(3) as $portfolio)
                     <div class="col-md-4 frame special-frame">
                         <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
-                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
+                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
                             <h3 class="title">{{ $portfolio->title }}</h3>
                             <div class="reguler-text sub-title">
                                 {{ $portfolio->created_at->format('d F Y') }}

@@ -13,6 +13,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\RelationManagers\RelationManager;
+use App\Models\Post;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -40,8 +41,19 @@ class PostsRelationManager extends RelationManager
 
                     TextInput::make('title')
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn (Set $set, ?string $state) => 
-                            $set('slug', Str::slug($state)))
+                        ->afterStateUpdated(function (Set $set, ?string $state) {
+                            $slug = Str::slug($state);
+                    
+                            $count = Post::where('slug', $slug)->count();
+                    
+                            if ($count > 0) {
+                                $maxSuffix = Post::where('slug', 'REGEXP', '^' . $slug . '-[0-9]+$')->max('slug');
+                                $maxSuffix = $maxSuffix ? (int)substr($maxSuffix, strrpos($maxSuffix, '-') + 1) : 0;
+                                $slug = $slug . '-' . ($maxSuffix + 1);
+                            }
+                    
+                            $set('slug', $slug);
+                        })
                         ->required(),
                         
                     TextInput::make('slug')->disabled(),
@@ -58,6 +70,8 @@ class PostsRelationManager extends RelationManager
 
                             return (string) $newFileName;
                         })
+                        ->image()
+                        ->imageEditor()
                         ->required(),
 
                     RichEditor::make('content')
