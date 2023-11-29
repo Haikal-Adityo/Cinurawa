@@ -35,12 +35,16 @@ class TagResource extends Resource
             ->schema([
                 Section::make()->schema([
                     TextInput::make('name')
-                        ->live()
-                        ->afterStateUpdated(fn (Set $set, ?string $state) => 
-                            $set('slug', Str::slug($state)))
-                        ->required(),
+                    ->required()
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) => 
+                        $operation === 'create' ? $set('slug', Str::slug($state)) : null),
 
-                    TextInput::make('slug')->disabled(),
+                    TextInput::make('slug')
+                        ->disabled()
+                        ->dehydrated()
+                        ->required()
+                        ->unique(Tag::class, 'slug', ignoreRecord: true),
                 ])
             ]);
     }
@@ -49,15 +53,19 @@ class TagResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
-                TextColumn::make('name')->limit('50')->sortable()->searchable(),
-                TextColumn::make('slug')->limit('50'),
+                TextColumn::make('name')
+                    ->limit('50')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('slug')
+                    ->limit('50'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

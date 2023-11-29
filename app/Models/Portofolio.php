@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Portofolio extends Model
 {
@@ -22,4 +23,21 @@ class Portofolio extends Model
         'is_published' => 'boolean',
     ];
 
+    protected static function booted(): void
+    {
+        parent::booted();
+
+        static::updated(function (Portofolio $model) {
+            if ($model->isDirty('thumbnail') && $model->getOriginal('thumbnail')) {
+                Storage::disk('public')->delete($model->getOriginal('thumbnail'));
+            }
+        });
+
+        static::deleted(function (Portofolio $model) {
+            if ($model->thumbnail) {
+                Storage::disk('public')->delete($model->thumbnail);
+            }
+        });
+        
+    }
 }
