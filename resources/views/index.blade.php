@@ -431,7 +431,7 @@
                                 <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="" class="icon-medsos">
                             </a>
                         </div>
-                    </div>w
+                    </div>
 
                     <div class="col-lg-4">
                         <h3>Our Address</h3>
