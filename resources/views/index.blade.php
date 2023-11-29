@@ -126,7 +126,9 @@
             <div class="row content-services">
                 <div class="col-md-6 order2">
                     <a href="{{ route('services.propertio') }}">
-                        <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
+                        <center>
+                            <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
+                        </center>
                     </a>
                 </div>
                 <div class="col-md-6 order1">
@@ -158,7 +160,9 @@
                 </div>
                 <div class="col-md-6 text-end">
                     <a href="{{ route('services.augmented-reality') }}">
-                        <img src="{{ url('/img/ar.png') }}" alt="" class="img-fluid">
+                        <center>
+                            <img src="{{ url('/img/ar.png') }}" alt="" class="img-fluid">
+                        </center>
                     </a>
                 </div>
             </div>
@@ -166,7 +170,9 @@
             <div class="row content-services">
                 <div class="col-md-6 order2">
                     <a href="{{ route('services.virtual-reality') }}">
-                        <img src="{{ url('/img/vr.png') }}" alt="" class="img-fluid">
+                        <center>
+                            <img src="{{ url('/img/vr.png') }}" alt="" class="img-fluid">
+                        </center>
                     </a>
                 </div>
                 <div class="col-md-6 order1">
@@ -199,7 +205,9 @@
 
                 <div class="col-md-6 text-end order2">
                     <a href="{{ route('services.mixed-reality') }}">
-                        <img src="{{ url('/img/mr.png') }}" alt="" class="img-fluid">
+                        <center>
+                            <img src="{{ url('/img/mr.png') }}" alt="" class="img-fluid">
+                        </center>
                     </a>
                 </div>
             </div>
@@ -282,25 +290,26 @@
             <div class="row" id="portfolioContainer">
 
                 @foreach($portfolios->sortByDesc('created_at')->take(6) as $portfolio)
-                    <div class="col-md-4 frame">
-                        <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
-                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
-                            <h3 class="title">{{ $portfolio->title }}</h3>
-                            <div class="reguler-text sub-title">
-                                {{ $portfolio->created_at->format('d F Y') }}
-                            </div>
-                        </a>
-                    </div>
+                <div class="col-md-4 frame">
+                    <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
+                        <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}"
+                            class="img-fluid img-portofolio">
+                        <h3 class="title">{{ $portfolio->title }}</h3>
+                        <div class="reguler-text sub-title">
+                            {{ $portfolio->created_at->format('d F Y') }}
+                        </div>
+                    </a>
+                </div>
                 @endforeach
-            
-            </div>            
+
+            </div>
 
             <div class="button">
                 <button id="loadMore">
                     View More
                 </button>
             </div>
-            
+
         </div>
     </section>
 
@@ -401,7 +410,7 @@
 
     <section>
         <footer>
-            <div class="container">
+            <div class="container footer-index">
                 <div class="row">
                     <div class="col-lg-4">
                         <img src="{{ url('/img/logo.svg') }}" alt="" class="mb-3">
@@ -422,7 +431,7 @@
                                 <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="" class="icon-medsos">
                             </a>
                         </div>
-                    </div>
+                    </div>w
 
                     <div class="col-lg-4">
                         <h3>Our Address</h3>

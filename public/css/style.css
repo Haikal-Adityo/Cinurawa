@@ -401,6 +401,44 @@ section {
     background: rgba(0, 0, 0, 0.10);
 }
 
+/* footer */
+footer {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+footer .medsos {
+    margin-top: 24px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+.footer-index {
+    margin-top: -100px;
+}
+
+.icon-medsos {
+    margin-right: 32px;
+
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+.search-icon svg {
+    fill: #4A5A67;
+    width: 24px;
+    height: 24px;
+}
+
+
 
 @media screen and (max-width: 768px) {
     .reguler-text {
@@ -472,6 +510,14 @@ section {
         padding-bottom: 0;
     }
 
+    #services img {
+        padding-top: 50px;
+        padding-bottom: 0;
+        width: 50%;
+        /* display: block;
+        margin-left: 75px; */
+    }
+
     .content-services {
         margin-top: 40px;
     }
@@ -534,44 +580,11 @@ section {
     .slider .position {
         margin-top: 0;
     }
+
+    .footer-index {
+        margin-top: -200px;
+    }
 }
-
-
-/* footer */
-footer {
-    padding-top: 100px;
-    padding-bottom: 50px;
-    /* padding-bottom: 200px; */
-}
-
-footer .medsos {
-    margin-top: 24px;
-}
-
-footer a {
-    text-decoration: none;
-}
-
-.icon-medsos {
-    margin-right: 32px;
-
-}
-
-.search-icon {
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-}
-
-.search-icon svg {
-    fill: #4A5A67;
-    width: 24px;
-    height: 24px;
-}
-
-
 
 /* Different Page */
 /* Services Page */
