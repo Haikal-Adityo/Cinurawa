@@ -50,6 +50,7 @@ class PortofolioResource extends Resource
                         TextInput::make('title')
                             ->required()
                             ->live(onBlur: true)
+                            ->maxLength(255)
                             ->afterStateUpdated(function (Set $set, ?string $state) {
                                 $slug = Str::slug($state);
                         
@@ -68,11 +69,18 @@ class PortofolioResource extends Resource
                             ->disabled()
                             ->dehydrated()
                             ->required()
+                            ->maxLength(255)
                             ->unique(Portofolio::class, 'slug', ignoreRecord: true),
 
-                        TextInput::make('sub_title')->required(),
+                        TextInput::make('sub_title')
+                            ->columnSpan('full')
+                            ->required(),
 
                         FileUpload::make('thumbnail')
+                            ->image()
+                            ->imageEditor()
+                            ->required()
+                            ->columnSpan('full')
                             ->preserveFilenames()
                             ->directory('portofolio/portofolio-thumbnails')
                             ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
@@ -84,16 +92,15 @@ class PortofolioResource extends Resource
                                 $newFileName = str($originalName)->prepend($formattedTimestamp);
 
                                 return (string) $newFileName;
-                            })
-                            ->image()
-                            ->imageEditor()
-                            ->required(),
+                            }),
 
                         RichEditor::make('content')
                             ->required()
+                            ->columnSpan('full')
                             ->fileAttachmentsDirectory('portofolio/portofolio-attachments'),
 
                     ])
+                    ->columns(2)
                 ])
                 ->columnSpan(['lg' => 2]),
 
@@ -127,6 +134,9 @@ class PortofolioResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('thumbnail')
+                    ->label('Image'),
+
                 TextColumn::make('title')
                     ->sortable()
                     ->searchable(),
@@ -143,8 +153,6 @@ class PortofolioResource extends Resource
 
                 IconColumn::make('is_published')
                     ->boolean(),
-
-                ImageColumn::make('thumbnail'),
             ])
             ->filters([
                 Filter::make('Published')
@@ -165,6 +173,8 @@ class PortofolioResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
+
+    
     
     public static function getRelations(): array
     {

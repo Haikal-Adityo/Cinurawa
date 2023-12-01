@@ -64,13 +64,18 @@ class PostsRelationManager extends RelationManager
                             ->required()
                             ->unique(Post::class, 'slug', ignoreRecord: true),
 
-                        Select::make('category_id')
+                            Select::make('category_id')
                             ->relationship('category', 'name')
+                            ->columnSpan('full')
                             ->preload()
                             ->required()
                             ->searchable(),
 
                         FileUpload::make('thumbnail')->preserveFilenames()
+                            ->image()
+                            ->imageEditor()
+                            ->required()
+                            ->columnSpan('full')
                             ->directory('blog/blog-thumbnails')
                             ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                                 $originalName = $file->getClientOriginalName();
@@ -81,16 +86,15 @@ class PostsRelationManager extends RelationManager
                                 $newFileName = str($originalName)->prepend($formattedTimestamp);
 
                                 return (string) $newFileName;
-                            })
-                            ->image()
-                            ->imageEditor()
-                            ->required(),
+                            }),
 
                         RichEditor::make('content')
                             ->required()
+                            ->columnSpan('full')
                             ->fileAttachmentsDirectory('blog/blog-attachments'),
 
                     ])
+                    ->columns(2)
                 ])
                 ->columnSpan(['lg' => 2]),
 
@@ -132,6 +136,9 @@ class PostsRelationManager extends RelationManager
     {
         return $table
             ->columns([
+                ImageColumn::make('thumbnail')
+                    ->label('Image'),
+
                 TextColumn::make('title')
                     ->limit('50')
                     ->sortable()
@@ -148,8 +155,6 @@ class PostsRelationManager extends RelationManager
 
                 IconColumn::make('is_published')
                     ->boolean(),
-
-                ImageColumn::make('thumbnail'),
             ])
             ->filters([
                 Filter::make('Published')

@@ -77,11 +77,16 @@ class PostResource extends Resource
 
                         Select::make('category_id')
                             ->relationship('category', 'name')
+                            ->columnSpan('full')
                             ->preload()
                             ->required()
                             ->searchable(),
 
                         FileUpload::make('thumbnail')->preserveFilenames()
+                            ->image()
+                            ->imageEditor()
+                            ->required()
+                            ->columnSpan('full')
                             ->directory('blog/blog-thumbnails')
                             ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                                 $originalName = $file->getClientOriginalName();
@@ -92,16 +97,15 @@ class PostResource extends Resource
                                 $newFileName = str($originalName)->prepend($formattedTimestamp);
 
                                 return (string) $newFileName;
-                            })
-                            ->image()
-                            ->imageEditor()
-                            ->required(),
+                            }),
 
                         RichEditor::make('content')
                             ->required()
+                            ->columnSpan('full')
                             ->fileAttachmentsDirectory('blog/blog-attachments'),
 
                     ])
+                    ->columns(2)
                 ])
                 ->columnSpan(['lg' => 2]),
 
@@ -129,6 +133,7 @@ class PostResource extends Resource
                     ->schema([
                         Select::make('tags')
                             ->relationship('tags', 'name')
+                            ->searchable()
                             ->multiple()
                             ->preload(),
                     ])
@@ -143,6 +148,9 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('thumbnail')
+                    ->label('Image'),
+
                 TextColumn::make('title')
                     ->limit('50')
                     ->sortable()
@@ -159,8 +167,6 @@ class PostResource extends Resource
 
                 IconColumn::make('is_published')
                     ->boolean(),
-
-                ImageColumn::make('thumbnail'),
             ])
             ->filters([
                 Filter::make('Published')
