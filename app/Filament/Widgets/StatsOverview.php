@@ -4,6 +4,8 @@ namespace App\Filament\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Spatie\Analytics\Facades\Analytics;
+use Spatie\Analytics\Period;
 use App\Models\Portofolio;
 use App\Models\Post;
 

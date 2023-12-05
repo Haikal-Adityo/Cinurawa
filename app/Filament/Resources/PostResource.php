@@ -159,6 +159,10 @@ class PostResource extends Resource
                 TextColumn::make('slug')
                     ->limit('50')
                     ->toggleable(isToggledHiddenByDefault: true),
+                
+                TextColumn::make('content')
+                    ->limit('50')
+                    ->html(),
 
                 TextColumn::make('category.name')
                     ->searchable()
