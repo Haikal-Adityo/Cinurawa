@@ -80,55 +80,12 @@
     <section class="pb-5">
         <div class="container">
             @if($posts->count() > 0)
-<<<<<<< HEAD
             <div class="d-flex mb-5">
                 <div class="me-24"><img src="assets/img/blogs/blog-category.png" alt=""></div>
                 <div>
                     <h2>{{ $categoryModel->name }}</h2>
                 </div>
             </div>
-=======
-                <div class="d-flex mb-5">
-                    <div class="me-24"><img src="{{ url('/img/blogs/blog-category.png') }}" alt=""></div>
-                    <div>
-                        <h2>{{ $categoryModel->name }}</h2>
-                    </div>
-                </div>
-                
-                @foreach($posts->where('is_published', true)->sortByDesc('created_at') as $post)
-                <div class="row mt-5">
-                    <div class="col-md-4">
-                        <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid img-blog">
-                        </a>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-9">
-                            <div>
-                                <a href="{{ route('blog.show', ['slug' => $post->slug]) }}"><h3>{{ $post->title }}</h3></a> 
-                            </div>
-                                <div class="blog-category-subtitle mb-3">{!! $post->content !!}</div>
-                                <div class="blog-category-time d-flex">
-                                    
-                                    <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
-                                        @if($post->category && $post->category->name == 'Property')
-                                            <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Financial')
-                                            <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Architecture')
-                                            <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Creativity')
-                                            <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Lifestyle')
-                                            <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label">
-                                        @elseif($post->category && $post->category->name == 'Culture')
-                                            <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
-                                        @else
-                                            <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
-                                        @endif
-                                    </a>
->>>>>>> ed789ce028c3e1827a19ee3feb82e8d8194f6fc8
 
             @foreach($posts->where('is_published', true)->sortByDesc('created_at') as $post)
             <div class="row mt-5">
