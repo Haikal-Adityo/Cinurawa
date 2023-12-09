@@ -287,6 +287,7 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
             <div class="row">
                 @foreach($portfolios->sortByDesc('created_at') as $portfolio)
                 <div class="col-md-4 frame">
@@ -300,6 +301,40 @@
                     </a>
                 </div>
                 @endforeach
+=======
+            <div class="row" id="portfolioContainer">
+
+                @foreach($portfolios->sortByDesc('created_at')->take(3) as $portfolio)
+                    <div class="col-md-4 mt-5">
+                        <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
+                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
+                            <h3 class="title">{{ $portfolio->title }}</h3>
+                            <div class="reguler-text sub-title">
+                                {{ $portfolio->created_at->format('d F Y') }}
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            
+                @foreach($portfolios->sortByDesc('created_at')->skip(3) as $portfolio)
+                    <div class="col-md-4 frame special-frame">
+                        <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
+                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
+                            <h3 class="title">{{ $portfolio->title }}</h3>
+                            <div class="reguler-text sub-title">
+                                {{ $portfolio->created_at->format('d F Y') }}
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            
+            </div>            
+
+            <div class="button">
+                <button class="button-secondary" id="loadMore">
+                    View More
+                </button>
+>>>>>>> ed789ce028c3e1827a19ee3feb82e8d8194f6fc8
             </div>
         </div>
     </section>
@@ -383,11 +418,11 @@
 
     <section id="contact">
         <div class="container">
-            <div class="contact">
+            <div class="card-contact">
                 <h2 class="text-contact">Ready to Bring Your Imagination to Life? Get in Touch with Us
                 </h2>
-                <a href="https://wa.me/6285702750455">
-                    <button class="button-secondary">Contact Us
+                 <a href="https://wa.me/6285702750455">
+                    <button class="button-light">Contact Us
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path
                                 d="M12.5534 1.69675C12.5534 1.28254 12.2176 0.946749 11.8034 0.946744L5.05339 0.946666C4.63917 0.946661 4.30338 1.28244 4.30338 1.69666C4.30337 2.11087 4.63916 2.44666 5.05337 2.44667L11.0534 2.44674L11.0533 8.44673C11.0533 8.86095 11.3891 9.19674 11.8033 9.19674C12.2175 9.19675 12.5533 8.86097 12.5533 8.44675L12.5534 1.69675ZM1.72698 12.8336L12.3337 2.22708L11.2731 1.16641L0.666331 11.7729L1.72698 12.8336Z"

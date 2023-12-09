@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
@@ -30,6 +31,17 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    protected static function booted(): void
+    {
+        parent::booted();
+
+        static::updated(function (Post $model) {
+            if ($model->isDirty('thumbnail') && $model->getOriginal('thumbnail')) {
+                Storage::disk('public')->delete($model->getOriginal('thumbnail'));
+            }
+        });
     }
 
 }

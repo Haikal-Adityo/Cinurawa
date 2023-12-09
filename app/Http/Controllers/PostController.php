@@ -77,17 +77,21 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-
+    
         $posts = Post::with('category', 'tags')
             ->where('title', 'like', '%' . $query . '%')
+            ->orWhereHas('tags', function ($tagQuery) use ($query) {
+                $tagQuery->where('name', 'like', '%' . $query . '%');
+            })
             ->where('is_published', true)
             ->get();
-
+    
         $postCount = $posts->count();
-
+    
         $categories = Category::distinct()->get();
-
+    
         return view('blog.blog-search', compact('posts', 'categories', 'query', 'postCount'));
     }
+    
 
 }

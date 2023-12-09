@@ -7,21 +7,22 @@ use App\Filament\Resources\PostResource\RelationManagers;
 use App\Filament\Resources\PostResource\RelationManagers\TagsRelationManager;
 use App\Filament\Resources\PostResource\Widgets\PostStatsOverview;
 use App\Models\Post;
+use App\Models\Tag;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
@@ -31,7 +32,6 @@ use Illuminate\Database\Eloquent\Factories\BelongsToRelationship;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
-use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Carbon\Carbon;
 
 class PostResource extends Resource
@@ -48,53 +48,134 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Section::make()->schema([
-                    Select::make('category_id')
-                        ->relationship('category', 'name'),
-
-                    TextInput::make('title')
-                        ->live(onBlur: true)
-                        ->afterStateUpdated(fn (Set $set, ?string $state) => 
-                            $set('slug', Str::slug($state)))
-                        ->required(),
+                Group::make()
+                ->schema([
+                    Section::make()
+                    ->schema([
+                        TextInput::make('title')
+                            ->required()
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function (Set $set, ?string $state) {
+                                $slug = Str::slug($state);
                         
-                    TextInput::make('slug')->disabled(),
+                                $count = Post::where('slug', $slug)->count();
+                        
+                                if ($count > 0) {
+                                    $maxSuffix = Post::where('slug', 'REGEXP', '^' . $slug . '-[0-9]+$')->max('slug');
+                                    $maxSuffix = $maxSuffix ? (int)substr($maxSuffix, strrpos($maxSuffix, '-') + 1) : 0;
+                                    $slug = $slug . '-' . ($maxSuffix + 1);
+                                }
+                        
+                                $set('slug', $slug);
+                            }),
+                            
+                        TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->required()
+                            ->unique(Post::class, 'slug', ignoreRecord: true),
 
-                    FileUpload::make('thumbnail')->preserveFilenames()
-                        ->directory('blog/blog-thumbnails')
-                        ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
-                            $originalName = $file->getClientOriginalName();
-                            $timestamp = now()->timestamp;
+                        Select::make('category_id')
+                            ->relationship('category', 'name')
+                            ->columnSpan('full')
+                            ->preload()
+                            ->required()
+                            ->searchable(),
 
-                            $formattedTimestamp = Carbon::createFromTimestamp($timestamp)->format('Y-m-d_H-i-s');
+                        FileUpload::make('thumbnail')->preserveFilenames()
+                            ->image()
+                            ->imageEditor()
+                            ->required()
+                            ->columnSpan('full')
+                            ->directory('blog/blog-thumbnails')
+                            ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                                $originalName = $file->getClientOriginalName();
+                                $timestamp = now()->timestamp;
 
-                            $newFileName = str($originalName)->prepend($formattedTimestamp);
+                                $formattedTimestamp = Carbon::createFromTimestamp($timestamp)->format('Y-m-d_H-i-s_');
 
-                            return (string) $newFileName;
-                        })->required(),
+                                $newFileName = str($originalName)->prepend($formattedTimestamp);
 
-                    RichEditor::make('content')
-                        ->fileAttachmentsDirectory('blog/blog-attachments'),
+                                return (string) $newFileName;
+                            }),
 
-                    Toggle::make('is_published'),
+                        RichEditor::make('content')
+                            ->required()
+                            ->columnSpan('full')
+                            ->fileAttachmentsDirectory('blog/blog-attachments'),
+
+                    ])
+                    ->columns(2)
                 ])
-            ]);
+                ->columnSpan(['lg' => 2]),
+
+                Group::make()
+                ->schema([
+                    Section::make('Status')
+                    ->schema([
+                        Toggle::make('is_published')
+                            ->label('Published')
+                            ->helperText('This post will be published to the website.'),
+
+                        Placeholder::make('created_at')
+                            ->label('Created at')
+                            ->content(fn (Post $record): ?string => $record->created_at?->diffForHumans())
+                            ->hidden(fn (?Post $record) => $record === null),
+
+                        Placeholder::make('updated_at')
+                            ->label('Last modified at')
+                            ->content(fn (Post $record): ?string => $record->updated_at?->diffForHumans())
+                            ->hidden(fn (?Post $record) => $record === null),
+                    ])
+                    ->columnSpan(['lg' => 1]),
+
+                    Section::make()
+                    ->schema([
+                        Select::make('tags')
+                            ->relationship('tags', 'name')
+                            ->searchable()
+                            ->multiple()
+                            ->preload(),
+                    ])
+                    ->columnSpan(['lg' => 1]),
+                ])
+                ->columnSpan(['lg' => 1])
+            ])
+            ->columns(3);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
-                TextColumn::make('title')->limit('50')->sortable()->searchable(),
-                TextColumn::make('slug')->limit('50'),
-                IconColumn::make('is_published')->boolean(),
-                ImageColumn::make('thumbnail'),
+                ImageColumn::make('thumbnail')
+                    ->label('Image'),
+
+                TextColumn::make('title')
+                    ->limit('50')
+                    ->sortable()
+                    ->searchable(),
+
+                TextColumn::make('slug')
+                    ->limit('50')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                
+                TextColumn::make('content')
+                    ->limit('50')
+                    ->html(),
+
+                TextColumn::make('category.name')
+                    ->searchable()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                IconColumn::make('is_published')
+                    ->boolean(),
             ])
             ->filters([
                 Filter::make('Published')
                     ->query(fn (Builder $query): Builder => $query->where('is_published', true)),
-                Filter::make('UnPublished')
+                Filter::make('NotPublished')
                     ->query(fn (Builder $query): Builder => $query->where('is_published', false)),
 
                 SelectFilter::make('Category')
@@ -105,6 +186,7 @@ class PostResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
@@ -120,7 +202,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            TagsRelationManager::class,
+            //
         ];
     }
 

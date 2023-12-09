@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class Portofolio extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'title',
         'slug',
@@ -22,17 +23,21 @@ class Portofolio extends Model
         'is_published' => 'boolean',
     ];
 
-    protected static function boot()
+    protected static function booted(): void
     {
-        parent::boot();
+        parent::booted();
 
-        static::creating(function ($portfolio) {
-            $portfolio->slug = Str::slug($portfolio->title);
+        static::updated(function (Portofolio $model) {
+            if ($model->isDirty('thumbnail') && $model->getOriginal('thumbnail')) {
+                Storage::disk('public')->delete($model->getOriginal('thumbnail'));
+            }
         });
 
-        static::updating(function ($portfolio) {
-            $portfolio->slug = Str::slug($portfolio->title);
+        static::deleted(function (Portofolio $model) {
+            if ($model->thumbnail) {
+                Storage::disk('public')->delete($model->thumbnail);
+            }
         });
+        
     }
-
 }

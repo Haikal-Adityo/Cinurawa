@@ -11,6 +11,9 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
@@ -24,7 +27,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
-use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Carbon\Carbon;
 
 class PortofolioResource extends Resource
@@ -41,61 +43,124 @@ class PortofolioResource extends Resource
     {
         return $form
             ->schema([
-                Section::make()->schema([
-                    TextInput::make('title')
-                        ->live(onBlur: true)
-                        ->afterStateUpdated(fn (Set $set, ?string $state) => 
-                            $set('slug', Str::slug($state)))
-                        ->required(),
+                Group::make()
+                ->schema([
+                    Section::make()
+                    ->schema([
+                        TextInput::make('title')
+                            ->required()
+                            ->live(onBlur: true)
+                            ->maxLength(255)
+                            ->afterStateUpdated(function (Set $set, ?string $state) {
+                                $slug = Str::slug($state);
                         
-                    TextInput::make('slug')->disabled(),
-
-                    TextInput::make('sub_title')->required(),
-
-                    FileUpload::make('thumbnail')
-                        ->preserveFilenames()
-                        ->directory('portofolio/portofolio-thumbnails')
-                        ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
-                            $originalName = $file->getClientOriginalName();
-                            $timestamp = now()->timestamp;
-
-                            $formattedTimestamp = Carbon::createFromTimestamp($timestamp)->format('Y-m-d_H-i-s');
-
-                            $newFileName = str($originalName)->prepend($formattedTimestamp);
-
-                            return (string) $newFileName;
-                        })
-                        ->required(),
-
-                    RichEditor::make('content')
-                        ->fileAttachmentsDirectory('portofolio/portofolio-attachments'),
+                                $count = Portofolio::where('slug', $slug)->count();
                         
-                    Toggle::make('is_published'),
+                                if ($count > 0) {
+                                    $maxSuffix = Portofolio::where('slug', 'REGEXP', '^' . $slug . '-[0-9]+$')->max('slug');
+                                    $maxSuffix = $maxSuffix ? (int)substr($maxSuffix, strrpos($maxSuffix, '-') + 1) : 0;
+                                    $slug = $slug . '-' . ($maxSuffix + 1);
+                                }
+                        
+                                $set('slug', $slug);
+                            }),
+                            
+                        TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
+                            ->required()
+                            ->maxLength(255)
+                            ->unique(Portofolio::class, 'slug', ignoreRecord: true),
+
+                        TextInput::make('sub_title')
+                            ->columnSpan('full')
+                            ->required(),
+
+                        FileUpload::make('thumbnail')
+                            ->image()
+                            ->imageEditor()
+                            ->required()
+                            ->columnSpan('full')
+                            ->preserveFilenames()
+                            ->directory('portofolio/portofolio-thumbnails')
+                            ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                                $originalName = $file->getClientOriginalName();
+                                $timestamp = now()->timestamp;
+
+                                $formattedTimestamp = Carbon::createFromTimestamp($timestamp)->format('Y-m-d_H-i-s_');
+
+                                $newFileName = str($originalName)->prepend($formattedTimestamp);
+
+                                return (string) $newFileName;
+                            }),
+
+                        RichEditor::make('content')
+                            ->required()
+                            ->columnSpan('full')
+                            ->fileAttachmentsDirectory('portofolio/portofolio-attachments'),
+
+                    ])
+                    ->columns(2)
+                ])
+                ->columnSpan(['lg' => 2]),
+
+                Group::make()
+                ->schema([
+                    Section::make('Status')
+                    ->schema([
+                        Toggle::make('is_published')
+                            ->label('Published')
+                            ->helperText('This portofolio will be published to the website.'),
+
+                        Placeholder::make('created_at')
+                            ->label('Created at')
+                            ->content(fn (Portofolio $record): ?string => $record->created_at?->diffForHumans())
+                            ->hidden(fn (?Portofolio $record) => $record === null),
+
+                        Placeholder::make('updated_at')
+                            ->label('Last modified at')
+                            ->content(fn (Portofolio $record): ?string => $record->updated_at?->diffForHumans())
+                            ->hidden(fn (?Portofolio $record) => $record === null),
+                    ])
+                    ->columnSpan(['lg' => 1]),
 
                 ])
-            ]);
+                ->columnSpan(['lg' => 1])
+            ])
+            ->columns(3);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('title')->searchable(),
-                TextColumn::make('sub_title'),
+                ImageColumn::make('thumbnail')
+                    ->label('Image'),
+
+                TextColumn::make('title')
+                    ->sortable()
+                    ->searchable(),
+                    
+                TextColumn::make('slug')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('sub_title')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('content')
                     ->limit(50)
                     ->html(),
-                IconColumn::make('is_published')->boolean(),
-                ImageColumn::make('thumbnail'),
+
+                IconColumn::make('is_published')
+                    ->boolean(),
             ])
             ->filters([
                 Filter::make('Published')
                     ->query(fn (Builder $query): Builder => $query->where('is_published', true)),
-                Filter::make('UnPublished')
+                Filter::make('NotPublished')
                     ->query(fn (Builder $query): Builder => $query->where('is_published', false)),
             ])
             ->actions([
-                // Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
@@ -108,6 +173,8 @@ class PortofolioResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
+
+    
     
     public static function getRelations(): array
     {
@@ -124,5 +191,5 @@ class PortofolioResource extends Resource
             'edit' => Pages\EditPortofolio::route('/{record}/edit'),
         ];
     }
-    
+
 }
