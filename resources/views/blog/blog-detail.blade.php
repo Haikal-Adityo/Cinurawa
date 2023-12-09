@@ -51,7 +51,8 @@
                     <div class="row row-search">
                         <div class="col"><a href="{{ route('blog.index') }}">Home</a></div>
                         @foreach($categories as $navCategory)
-                            <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a></div>
+                        <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{
+                                $navCategory->name }}</a></div>
                         @endforeach
                     </div>
                 </div>
@@ -77,28 +78,28 @@
             <div class="light-body-text mb-3 breadcrumb">
                 <a href="{{ route('home') }}" class="breadcrumb-link">Home</a> &nbsp;/&nbsp;
                 <a href="{{ route('blog.category', ['category' => $post->category->name]) }}" class="breadcrumb-link">
-                   {{ $post->category->name }} 
+                    {{ $post->category->name }}
                 </a> &nbsp;/&nbsp; {{ $post->title }}
-            </div>            
-            
+            </div>
+
             <h2 class="mb-3">{{ $post->title }}</h2>
             <div class="d-flex">
 
                 <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
                     @if($post->category && $post->category->name == 'Property')
-                        <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
                     @elseif($post->category && $post->category->name == 'Financial')
-                        <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label">
+                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label">
                     @elseif($post->category && $post->category->name == 'Architecture')
-                        <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label">
+                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label">
                     @elseif($post->category && $post->category->name == 'Creativity')
-                        <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label">
+                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label">
                     @elseif($post->category && $post->category->name == 'Lifestyle')
-                        <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label">
+                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label">
                     @elseif($post->category && $post->category->name == 'Culture')
-                        <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
+                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label">
                     @else
-                        <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
                     @endif
                 </a>
 
@@ -115,9 +116,9 @@
             <div class="tag">
                 Tags :
                 @forelse($tags as $tag)
-                    <a href="#" class="button-tags medium-text {{ $loop->last ? '' : 'me-16' }}">#{{ $tag->slug }}</a>
+                <a href="#" class="button-tags medium-text {{ $loop->last ? '' : 'me-16' }}">#{{ $tag->slug }}</a>
                 @empty
-                    <span>No tags available</span>
+                <span>No tags available</span>
                 @endforelse
             </div>
         </div>
@@ -169,7 +170,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

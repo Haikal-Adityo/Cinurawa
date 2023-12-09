@@ -71,19 +71,18 @@
                 </div>
 
                 <div class="row">
-
                     @foreach($portfolios->sortByDesc('created_at') as $portfolio)
-                        <div class="col-md-4 frame">
-                            <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
-                                <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}" class="img-fluid img-portofolio">
-                                <h3 class="title">{{ $portfolio->title }}</h3>
-                                <div class="reguler-text sub-title">
-                                    {{ $portfolio->created_at->format('d F Y') }}
-                                </div>
-                            </a>
-                        </div>
+                    <div class="col-md-4 frame">
+                        <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
+                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
+                                class="img-fluid img-portofolio">
+                            <h3 class="title">{{ $portfolio->title }}</h3>
+                            <div class="reguler-text sub-title">
+                                {{ $portfolio->created_at->format('d F Y') }}
+                            </div>
+                        </a>
+                    </div>
                     @endforeach
-
                 </div>
             </div>
         </section>
@@ -135,7 +134,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

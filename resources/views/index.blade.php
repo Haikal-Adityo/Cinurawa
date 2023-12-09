@@ -287,12 +287,11 @@
                 </div>
             </div>
 
-            <div class="row" id="portfolioContainer">
-
-                @foreach($portfolios->sortByDesc('created_at')->take(6) as $portfolio)
+            <div class="row">
+                @foreach($portfolios->sortByDesc('created_at') as $portfolio)
                 <div class="col-md-4 frame">
                     <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
-                        <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}"
+                        <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
                             class="img-fluid img-portofolio">
                         <h3 class="title">{{ $portfolio->title }}</h3>
                         <div class="reguler-text sub-title">
@@ -301,15 +300,7 @@
                     </a>
                 </div>
                 @endforeach
-
             </div>
-
-            <div class="button">
-                <button id="loadMore">
-                    View More
-                </button>
-            </div>
-
         </div>
     </section>
 
