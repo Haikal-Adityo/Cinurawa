@@ -54,9 +54,10 @@
                         Extraordinary imaginations come true
                     </h1>
                     <p>
-                        Present your property in the hands of the customer. Together we make extraordinary
-                        imaginations
-                        come true.
+                        Join CINURAWA, the pioneer in immersive technology, bringing digital wonders to the real world.
+                        Your brilliant ideas deserve realization. As passionate partners, we assist in crafting
+                        revolutionary experiences. With our immersive technology, turn your imagination into
+                        unforgettable reality.
                     </p>
                     <a href="https://wa.me/6285702750455" />
                     <button class="button-primary me-1">Contact Us
@@ -92,10 +93,15 @@
             <div class="sub-heading text-center">
                 Introduction
             </div>
-            <h2 class="text-center">Who we are</h2>
-            <div class="reguler-text text-center text">
-                One of our products is the AR Property Project, which develops client Immersive applications in the
-                form of Augmented Reality applications in the property sector
+            <h2 class="text-center mb-3">Who we are</h2>
+            <div class="reguler-text text mb-4">
+                CINURAWA is a leading innovator in the realm of immersive technology, dedicated to turning digital
+                wonders into tangible reality. Our passion lies in making extraordinary ideas a reality, firmly
+                believing that every great idea deserves to come to life.
+
+                As enthusiastic partners, we collaborate closely with you to craft revolutionary experiences using
+                cutting-edge immersive technology. Our team is not just a solution provider; we are your dedicated
+                allies, guiding you step by step in bringing your visions to life.
             </div>
 
             <center>
@@ -115,33 +121,11 @@
                     <div class="sub-heading">
                         Our Services
                     </div>
-                    <h2>Sample of service header</h2>
-                    <div class="reguler-text">
+                    <h2>Turn Imagination into Reality with Us</h2>
+                    <!-- <div class="reguler-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                         incididunt ut labore et dolore magna aliqua.
-                    </div>
-                </div>
-            </div>
-
-            <div class="row content-services">
-                <div class="col-md-6 order2">
-                    <a href="{{ route('services.propertio') }}">
-                        <center>
-                            <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
-                </div>
-                <div class="col-md-6 order1">
-                    <a href="{{ route('services.propertio') }}">
-                        <h3>Propertio</h3>
-                        <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore et
-                            dolore magna aliqua.
-                        </div>
-                    </a>
+                    </div> -->
                 </div>
             </div>
 
@@ -150,11 +134,10 @@
                     <a href="{{ route('services.augmented-reality') }}">
                         <h3>Augmented Reality</h3>
                         <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore et
-                            dolore magna aliqua.
+                            Bring your products directly into customers' lives with real-time information and
+                            interactive guidance. Customers can virtually see and feel the products in their physical
+                            environment, providing an amazing experience and aiding them in making more confident
+                            decisions.
                         </div>
                     </a>
                 </div>
@@ -179,11 +162,9 @@
                     <a href="{{ route('services.virtual-reality') }}">
                         <h3>Virtual Reality</h3>
                         <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore et
-                            dolore magna aliqua.
+                            Embark on a captivating VR journey, from mesmerizing employee training to interactive
+                            product presentations. Create an awe-inspiring and lifelike atmosphere at every step. With
+                            VR, your brilliant ideas transform into unforgettable experiences.
                         </div>
                     </a>
                 </div>
@@ -194,11 +175,9 @@
                     <a href="{{ route('services.mixed-reality') }}">
                         <h3>Mixed Reality</h3>
                         <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore et
-                            dolore magna aliqua.
+                            Enhance construction project efficiency by blending the virtual and real worlds. Share
+                            product concepts directly with clients, creating a captivating experience and delivering
+                            tangible added value at every project stage.
                         </div>
                     </a>
                 </div>
@@ -211,26 +190,49 @@
                     </a>
                 </div>
             </div>
+
+            <div class="row content-services">
+                <div class="col-md-6 order2">
+                    <a href="{{ route('services.propertio') }}">
+                        <center>
+                            <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
+                        </center>
+                    </a>
+                </div>
+                <div class="col-md-6 order1">
+                    <a href="{{ route('services.propertio') }}">
+                        <h3>Propertio</h3>
+                    </a>
+                    <div class="reguler-text">
+                        <a href="https://propertio.id/"><span style="color: #449eec;">Propertio.id</span></a>
+                        adalah sebuah aplikasi inovatif yang menyediakan solusi komprehensif di bidang
+                        properti, mencakup kebutuhan pencari properti, pelaku usaha properti, pembeli furnitur, dan
+                        individu yang berencana untuk membangun atau merenovasi properti. Aplikasi ini menyajikan
+                        berbagai fitur yang dirancang untuk memudahkan pengguna dalam menjalankan berbagai aspek
+                        yang terkait dengan dunia properti.
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="why">
         <div class="container">
             <h2 class="text-center">Why Choose Us</h2>
-            <div class="reguler-text text-center text">
+            <!-- <div class="reguler-text text-center text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                 et
                 dolore magna aliqua.
-            </div>
+            </div> -->
 
             <div class="row mt-5">
                 <div class="col-md-4">
                     <div class="card-why">
                         <img src="{{ url('/img/why.png') }}" alt="">
-                        <h3>First Reason</h3>
+                        <h3>Leading Expertise</h3>
                         <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Our team comprises experts in the field, ready to deliver outstanding solutions in immersive
+                            technology.
                         </div>
                     </div>
                 </div>
@@ -238,10 +240,10 @@
                 <div class="col-md-4">
                     <div class="card-why">
                         <img src="{{ url('/img/why.png') }}" alt="">
-                        <h3>First Reason</h3>
+                        <h3>Boundless Innovation</h3>
                         <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            We don't just follow trends; we create them. With CINURAWA, you become a part of the digital
+                            future.
                         </div>
                     </div>
                 </div>
@@ -249,10 +251,10 @@
                 <div class="col-md-4">
                     <div class="card-why">
                         <img src="{{ url('/img/why.png') }}" alt="">
-                        <h3>First Reason</h3>
+                        <h3>Client Commitment</h3>
                         <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Client satisfaction is our top priority. We work closely with you to ensure every project
+                            reaches its full potential.
                         </div>
                     </div>
                 </div>
@@ -280,14 +282,13 @@
                     </a>
                 </div>
 
-                <h2>Sample of portofolio header</h2>
+                <h2>CINURAWA Portfolio Showcase</h2>
                 <div class="reguler-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.
+                    Explore Our Diverse Range of Innovative Solutions
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mb-3">
                 @foreach($portfolios->sortByDesc('created_at') as $portfolio)
                 <div class="col-md-4 frame">
                     <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
@@ -310,10 +311,10 @@
                 Reviews
             </div>
             <h2 class="text-center">What They says</h2>
-            {{-- <div class="reguler-text text-center text">
+            <!-- <div class="reguler-text text-center text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua.
-            </div> --}}
+            </div> -->
             <div class="slider">
                 <div class="owl-carousel">
                     <div class="slider-card">
@@ -365,7 +366,7 @@
             <div class="sub-heading text-center">
                 Our Partners
             </div>
-            <h2 class="text-center">Sample Header</h2>
+            <h2 class="text-center">Research and Clients</h2>
             <div class="reguler-text text-center">
                 We’ve been working with teams around the world
             </div>
@@ -448,7 +449,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="{{ url('/js/owl.carousel.min.js') }}"></script>
     <script src="{{ url('/js/script.js') }}"></script>
 </body>

@@ -46,132 +46,113 @@
         <div class="container bg-hero-services pt-5 hero-services">
             <h1 class="text-center">Discover Our <span>Solutions</span> to Realize Your Dreams</h1>
             <div class="reguler-text text-center mt-4 pb-5">
-                lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit
-                amet
-                megalodon lorem ipsum dolor sit amet
+                With CINURAWA, your dreams come to life. Explore our innovative solutions that surpass expectations,
+                shaping your vision into reality. Let's bring your dreams to fruition with CINURAWA.
             </div>
         </div>
     </section>
 
-    <div class="content">
-        <section id="services">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="sub-heading">
-                            Our Services
-                        </div>
-                        <h2>Sample of service header</h2>
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="sub-heading">
+                        Our Services
+                    </div>
+                    <h2>Turn Imagination into Reality with Us</h2>
+                    <!-- <div class="reguler-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua.
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="row content-services">
+                <div class="col-md-6">
+                    <a href="{{ route('services.augmented-reality') }}">
+                        <h3>Augmented Reality</h3>
                         <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
+                            Bring your products directly into customers' lives with real-time information and
+                            interactive guidance. Customers can virtually see and feel the products in their physical
+                            environment, providing an amazing experience and aiding them in making more confident
+                            decisions.
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="{{ route('services.augmented-reality') }}">
+                        <center>
+                            <img src="{{ url('/img/ar.png') }}" alt="" class="img-fluid">
+                        </center>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row content-services">
+                <div class="col-md-6 order2">
+                    <a href="{{ route('services.virtual-reality') }}">
+                        <center>
+                            <img src="{{ url('/img/vr.png') }}" alt="" class="img-fluid">
+                        </center>
+                    </a>
+                </div>
+                <div class="col-md-6 order1">
+                    <a href="{{ route('services.virtual-reality') }}">
+                        <h3>Virtual Reality</h3>
+                        <div class="reguler-text">
+                            Embark on a captivating VR journey, from mesmerizing employee training to interactive
+                            product presentations. Create an awe-inspiring and lifelike atmosphere at every step. With
+                            VR, your brilliant ideas transform into unforgettable experiences.
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row content-services">
+                <div class="col-md-6 order1">
+                    <a href="{{ route('services.mixed-reality') }}">
+                        <h3>Mixed Reality</h3>
+                        <div class="reguler-text">
+                            Enhance construction project efficiency by blending the virtual and real worlds. Share
+                            product concepts directly with clients, creating a captivating experience and delivering
+                            tangible added value at every project stage.
+                        </div>
+                    </a>
                 </div>
 
-                <div class="row content-services">
-                    <div class="col-md-6 order2">
-                        <a href="{{ route('services.propertio') }}">
-                            <center>
-                                <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
-                            </center>
-                        </a>
-                    </div>
-                    <div class="col-md-6 order1">
-                        <a href="{{ route('services.propertio') }}">
-                            <h3>Propertio</h3>
-                            <div class="reguler-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed
-                                do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore
-                                et
-                                dolore magna aliqua.
-                            </div>
-                        </a>
-                    </div>
+                <div class="col-md-6 text-end order2">
+                    <a href="{{ route('services.mixed-reality') }}">
+                        <center>
+                            <img src="{{ url('/img/mr.png') }}" alt="" class="img-fluid">
+                        </center>
+                    </a>
                 </div>
+            </div>
 
-                <div class="row content-services">
-                    <div class="col-md-6">
-                        <a href="{{ route('services.augmented-reality') }}">
-                            <h3>Augmented Reality</h3>
-                            <div class="reguler-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed
-                                do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore
-                                et
-                                dolore magna aliqua.
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <a href="{{ route('services.augmented-reality') }}">
-                            <center>
-                                <img src="{{ url('/img/ar.png') }}" alt="" class="img-fluid">
-                            </center>
-                        </a>
-                    </div>
+            <div class="row content-services">
+                <div class="col-md-6 order2">
+                    <a href="{{ route('services.propertio') }}">
+                        <center>
+                            <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
+                        </center>
+                    </a>
                 </div>
-
-                <div class="row content-services">
-                    <div class="col-md-6 order2">
-                        <a href="{{ route('services.virtual-reality') }}">
-                            <center>
-                                <img src="{{ url('/img/vr.png') }}" alt="" class="img-fluid">
-                            </center>
-                        </a>
-                    </div>
-                    <div class="col-md-6 order1">
-                        <a href="{{ route('services.virtual-reality') }}">
-                            <h3>Virtual Reality</h3>
-                            <div class="reguler-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed
-                                do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore
-                                et
-                                dolore magna aliqua.
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="row content-services">
-                    <div class="col-md-6 order1">
-                        <a href="{{ route('services.mixed-reality') }}">
-                            <h3>Mixed Reality</h3>
-                            <div class="reguler-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed
-                                do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore
-                                et
-                                dolore magna aliqua.
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-6 text-end order2">
-                        <a href="{{ route('services.mixed-reality') }}">
-                            <center>
-                                <img src="{{ url('/img/mr.png') }}" alt="" class="img-fluid">
-                            </center>
-                        </a>
+                <div class="col-md-6 order1">
+                    <a href="{{ route('services.propertio') }}">
+                        <h3>Propertio</h3>
+                    </a>
+                    <div class="reguler-text">
+                        <a href="https://propertio.id/"><span style="color: #449eec;">Propertio.id</span></a>
+                        adalah sebuah aplikasi inovatif yang menyediakan solusi komprehensif di bidang
+                        properti, mencakup kebutuhan pencari properti, pelaku usaha properti, pembeli furnitur, dan
+                        individu yang berencana untuk membangun atau merenovasi properti. Aplikasi ini menyajikan
+                        berbagai fitur yang dirancang untuk memudahkan pengguna dalam menjalankan berbagai aspek
+                        yang terkait dengan dunia properti.
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <section>
         <footer>

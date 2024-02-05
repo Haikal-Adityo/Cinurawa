@@ -57,7 +57,7 @@ nav .active {
 }
 
 #hero {
-    padding-top: 172px;
+    padding-top: 150px;
     background: linear-gradient(180deg, rgba(245, 247, 252, 0.00) 69.27%, #F5F7FC 100%), linear-gradient(90deg, #F6F6F6 0%, #EFF4FF 18.89%, #FFF5FC 47.22%, #F6FCF8 72.4%, #F5F7FC 100%);
     padding-bottom: 40px;
 }
@@ -226,10 +226,11 @@ section {
     padding-bottom: 100px;
 }
 
-.text {
-    padding-left: 320px;
-    padding-right: 320px;
+#introduction .text {
+    padding-left: 60px;
+    padding-right: 60px;
     padding-bottom: 30px;
+    text-align: center;
 }
 
 #services {
@@ -559,15 +560,21 @@ footer a {
         padding-bottom: 0;
     }
 
+    #gallery-name img {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     #introduction iframe {
         height: 100%;
         width: 100%;
     }
 
-    .text {
-        padding-left: 0;
-        padding-right: 0;
+    #introduction .text {
+        padding-left: 5px;
+        padding-right: 5px;
         margin-bottom: 15px;
+        text-align: justify;
     }
 
     /* #services {
@@ -687,7 +694,7 @@ footer a {
     border-radius: 10px;
     background: linear-gradient(90deg, #FEEFFA 0%, #F1E2FF 0.01%, #F9E5FD 24.48%, #F3EDFF 50%, #EDF8FF 75%, #E8E4FF 100%);
     padding-top: 100px;
-    padding-bottom: 50px;
+    padding-bottom: 175px;
 }
 
 .detail-portofolio {
@@ -998,6 +1005,8 @@ footer a {
 
     #about-us {
         margin-top: -75px;
+        padding-top: 30px;
+
     }
 
     .text-about {
@@ -1068,5 +1077,10 @@ footer a {
 
     .search-blog {
         margin-top: -100px;
+    }
+
+    .bg-hero-portofolio {
+        padding-top: 75px;
+        padding-bottom: 75px;
     }
 }

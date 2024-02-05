@@ -48,8 +48,10 @@
         <div class="container bg-hero-portofolio pt-5 pb-5 hero-services">
             <h1 class="text-center">Journey Through Our <span>Works</span></h1>
             <div class="reguler-text text-center mt-4 pb-5">
-                lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet
-                megalodon lorem ipsum dolor sit amet
+                Embark on a visual odyssey through our diverse works and witness the transformative touch of CINURAWA.
+                Explore a journey where innovation meets excellence, showcasing our commitment to bringing unique and
+                impactful solutions to life. Discover the extraordinary with CINURAWA as your guide through our creative
+                endeavors.
             </div>
         </div>
     </section>
@@ -62,10 +64,9 @@
                         <div class="sub-heading">
                             Our Portfolio
                         </div>
-                        <h2>Sample of portofolio header</h2>
+                        <h2>CINURAWA Portfolio Showcase</h2>
                         <div class="reguler-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
+                        Explore Our Diverse Range of Innovative Solutions
                         </div>
                     </div>
                 </div>

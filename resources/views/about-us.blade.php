@@ -47,10 +47,10 @@
     <section id="hero">
         <div class="container bg-hero-portofolio hero-services">
             <h1 class="text-center">Where Imagination Meets <span>Reality</span> </h1>
-            <div class="reguler-text text-center mt-4 pb-5">
+            <!-- <div class="reguler-text text-center mt-4 pb-5">
                 lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet
                 megalodon lorem ipsum dolor sit amet
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -59,24 +59,31 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="sub-heading">
-                        About Us
+                        Introduction
                     </div>
                     <h2>We’ll Brings Imaginations Came True </h2>
                 </div>
                 <div class="col-md-9">
                     <div class="reguler-text text-about">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            CINURAWA stands at the forefront of immersive technology, leading the charge to transform
+                            digital wonders into palpable reality. Rooted in our dedication to bringing extraordinary
+                            ideas to life, we firmly believe that each brilliant concept deserves realization.
                         </p>
 
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            As your devoted partners, our collaboration extends beyond mere solution provision. We
+                            immerse ourselves in your vision, working hand in hand to shape revolutionary experiences
+                            through state-of-the-art immersive technology. Beyond being a team, we emerge as your
+                            committed allies, providing meticulous guidance at every step of the journey to breathe life
+                            into your extraordinary visions.
+                        </p>
+
+                        <p>
+                            At CINURAWA, we don't just embrace innovation; we define it, ensuring that your ideas not
+                            only flourish but leave an indelible mark on the evolving landscape of immersive technology.
+                            Join us as we embark on a transformative journey to turn the extraordinary into the
+                            tangible, one visionary idea at a time.
                         </p>
                     </div>
                 </div>
@@ -93,10 +100,8 @@
                             <div><img src="{{ url('/img/abous-us/1.png') }}" alt=""></div>
                             <div>
                                 <h3>Customer-Centric Approach</h3>
-                                <p class="reguler-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
+                                <p class="reguler-text">Provide innovative and customer-oriented solutions to meet the
+                                    needs and expectations of customers with a high standard of excellence.</p>
                             </div>
                         </div>
                     </div>
@@ -105,11 +110,9 @@
                         <div class="d-flex">
                             <div><img src="{{ url('/img/abous-us/1.png') }}" alt=""></div>
                             <div>
-                                <h3>Customer-Centric Approach</h3>
-                                <p class="reguler-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
+                                <h3>Fulfillment of Imagination</h3>
+                                <p class="reguler-text">Present products and services that not only meet but exceed the
+                                    imagination of customers, crafting moments that linger in memory.</p>
                             </div>
                         </div>
                     </div>
@@ -118,11 +121,10 @@
                         <div class="d-flex">
                             <div><img src="{{ url('/img/abous-us/1.png') }}" alt=""></div>
                             <div>
-                                <h3>Customer-Centric Approach</h3>
-                                <p class="reguler-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
+                                <h3>Collaboration</h3>
+                                <p class="reguler-text">Building partnerships and creative collaborations with
+                                    individuals, companies, and institutions to stimulate the development of ideas and
+                                    technology.</p>
                             </div>
                         </div>
                     </div>
@@ -147,21 +149,18 @@
                     </div>
                     <h2>Aryaputra F.A.</h2>
                     <p class="reguler-text">
-                        “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et. sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et.“
+                        CINURAWA emerges as a pioneering company and research institution in the field of Immersive
+                        Technology, with a focus on providing solutions and transforming imagination into reality.
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ url('/img/abous-us/name.png') }}" alt="" class="img-fluid">
+                    <img src="{{ url('/img/abous-us/name.png') }}" alt="" class="img-fluid mx-auto d-block">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pb-5">
+    <section class="pb-5 pt-5">
         <div class="container">
             <div class="contact1">
                 <h2 class="text-contact1">Ready to Bring Your Imagination to Life? Get in Touch with Us
@@ -183,13 +182,12 @@
         <div class="container">
             <h2 class="text-center">Gallery</h2>
             <div class="reguler-text text-center text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.
+                Check out some exciting activities we've been up to!
             </div>
 
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-4 mb-5">
-                    <img src="{{ url('/img/gallery/1.png') }}" alt="" class="img-fluid">
+                    <img src="{{ url('/img/gallery/1.png') }}" alt="" class="img-fluid mx-auto">
                 </div>
 
                 <div class="col-md-4 mb-5">
@@ -261,7 +259,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+    </script>
 </body>
 
 </html>
