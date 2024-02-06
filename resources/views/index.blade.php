@@ -185,7 +185,7 @@
                 <div class="col-md-6 text-end order2">
                     <a href="{{ route('services.mixed-reality') }}">
                         <center>
-                            <img src="{{ url('/img/mr.png') }}" alt="" class="img-fluid">
+                            <img src="{{ url('/img/mr2.png') }}" alt="" class="img-fluid">
                         </center>
                     </a>
                 </div>
@@ -228,7 +228,7 @@
             <div class="row mt-5">
                 <div class="col-md-4">
                     <div class="card-why">
-                        <img src="{{ url('/img/why.png') }}" alt="">
+                        <img src="{{ url('/img/why-choose/Leading-Expertise.png') }}" alt="">
                         <h3>Leading Expertise</h3>
                         <div class="reguler-text">
                             Our team comprises experts in the field, ready to deliver outstanding solutions in immersive
@@ -239,7 +239,7 @@
 
                 <div class="col-md-4">
                     <div class="card-why">
-                        <img src="{{ url('/img/why.png') }}" alt="">
+                        <img src="{{ url('/img/why-choose/Boundless-Innovation.png') }}" alt="">
                         <h3>Boundless Innovation</h3>
                         <div class="reguler-text">
                             We don't just follow trends; we create them. With CINURAWA, you become a part of the digital
@@ -250,7 +250,7 @@
 
                 <div class="col-md-4">
                     <div class="card-why">
-                        <img src="{{ url('/img/why.png') }}" alt="">
+                        <img src="{{ url('/img/why-choose//Client-Commitment.png') }}" alt="">
                         <h3>Client Commitment</h3>
                         <div class="reguler-text">
                             Client satisfaction is our top priority. We work closely with you to ensure every project

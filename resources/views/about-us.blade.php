@@ -97,7 +97,7 @@
                 <div class="col-md-8 order2">
                     <div class="card-vision">
                         <div class="d-flex">
-                            <div><img src="{{ url('/img/abous-us/1.png') }}" alt=""></div>
+                            <div><img src="{{ url('/img/abous-us/customer.png') }}" alt=""></div>
                             <div>
                                 <h3>Customer-Centric Approach</h3>
                                 <p class="reguler-text">Provide innovative and customer-oriented solutions to meet the
@@ -108,7 +108,7 @@
 
                     <div class="card-vision mt-3">
                         <div class="d-flex">
-                            <div><img src="{{ url('/img/abous-us/1.png') }}" alt=""></div>
+                            <div><img src="{{ url('/img/abous-us/Fulfillment of Imagination.png') }}" alt=""></div>
                             <div>
                                 <h3>Fulfillment of Imagination</h3>
                                 <p class="reguler-text">Present products and services that not only meet but exceed the
@@ -119,7 +119,7 @@
 
                     <div class="card-vision mt-3">
                         <div class="d-flex">
-                            <div><img src="{{ url('/img/abous-us/1.png') }}" alt=""></div>
+                            <div><img src="{{ url('/img/abous-us/Collab.png') }}" alt=""></div>
                             <div>
                                 <h3>Collaboration</h3>
                                 <p class="reguler-text">Building partnerships and creative collaborations with
