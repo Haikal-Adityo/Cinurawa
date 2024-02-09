@@ -56,8 +56,10 @@
                     <p>
                         Join CINURAWA, the pioneer in immersive technology, bringing digital wonders to the real world.
                         Your brilliant ideas deserve realization. As passionate partners, we assist in crafting
-                        revolutionary experiences. With our immersive technology, turn your imagination into
-                        unforgettable reality.
+                        revolutionary experiences. <span class="hidden">With our immersive technology, turn your
+                            imagination into
+                            unforgettable reality.
+                        </span>
                     </p>
                     <a href="https://wa.me/6285702750455" />
                     <button class="button-primary me-1">Contact Us
@@ -68,6 +70,7 @@
                         </svg>
                     </button>
                     </a>
+
                     <a href="#introduction">
                         <button class="button-secondary">Explore Now
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13"
@@ -94,23 +97,27 @@
                 Introduction
             </div>
             <h2 class="text-center mb-3">Who we are</h2>
-            <div class="reguler-text text mb-4">
+            <div class="reguler-text text">
                 CINURAWA is a leading innovator in the realm of immersive technology, dedicated to turning digital
-                wonders into tangible reality. Our passion lies in making extraordinary ideas a reality, firmly
-                believing that every great idea deserves to come to life.
+                wonders into tangible reality. <span class="hidden">Our passion lies in making extraordinary ideas a
+                    reality, firmly
+                    believing that every great idea deserves to come to life.
 
-                As enthusiastic partners, we collaborate closely with you to craft revolutionary experiences using
-                cutting-edge immersive technology. Our team is not just a solution provider; we are your dedicated
-                allies, guiding you step by step in bringing your visions to life.
+                    As enthusiastic partners, we collaborate closely with you to craft revolutionary experiences using
+                    cutting-edge immersive technology. Our team is not just a solution provider; we are your dedicated
+                    allies, guiding you step by step in bringing your visions to life.</span>
             </div>
 
-            <center>
-                <iframe width="888" height="514" src="https://www.youtube.com/embed/swK-sxvbXRI?si=Z3yF_Xkbk5QJgDP0"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </center>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <iframe width="888" height="514" src="https://www.youtube.com/embed/swK-sxvbXRI?si=Z3yF_Xkbk5QJgDP0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen class="mx-auto">
+                    </iframe>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -135,9 +142,10 @@
                         <h3>Augmented Reality</h3>
                         <div class="reguler-text">
                             Bring your products directly into customers' lives with real-time information and
-                            interactive guidance. Customers can virtually see and feel the products in their physical
-                            environment, providing an amazing experience and aiding them in making more confident
-                            decisions.
+                            interactive guidance. <span class="hidden">Customers can virtually see and feel the products
+                                in their physical
+                                environment, providing an amazing experience and aiding them in making more confident
+                                decisions.</span>
                         </div>
                     </a>
                 </div>
@@ -163,8 +171,9 @@
                         <h3>Virtual Reality</h3>
                         <div class="reguler-text">
                             Embark on a captivating VR journey, from mesmerizing employee training to interactive
-                            product presentations. Create an awe-inspiring and lifelike atmosphere at every step. With
-                            VR, your brilliant ideas transform into unforgettable experiences.
+                            product presentations. <span class="hidden"> Create an awe-inspiring and lifelike atmosphere
+                                at every step. With
+                                VR, your brilliant ideas transform into unforgettable experiences.</span>
                         </div>
                     </a>
                 </div>
@@ -175,9 +184,10 @@
                     <a href="{{ route('services.mixed-reality') }}">
                         <h3>Mixed Reality</h3>
                         <div class="reguler-text">
-                            Enhance construction project efficiency by blending the virtual and real worlds. Share
-                            product concepts directly with clients, creating a captivating experience and delivering
-                            tangible added value at every project stage.
+                            Enhance construction project efficiency by blending the virtual and real worlds. <span
+                                class="hidden"> Share
+                                product concepts directly with clients, creating a captivating experience and delivering
+                                tangible added value at every project stage. </span>
                         </div>
                     </a>
                 </div>
@@ -206,10 +216,12 @@
                     <div class="reguler-text">
                         <a href="https://propertio.id/"><span style="color: #449eec;">Propertio.id</span></a>
                         adalah sebuah aplikasi inovatif yang menyediakan solusi komprehensif di bidang
-                        properti, mencakup kebutuhan pencari properti, pelaku usaha properti, pembeli furnitur, dan
-                        individu yang berencana untuk membangun atau merenovasi properti. Aplikasi ini menyajikan
-                        berbagai fitur yang dirancang untuk memudahkan pengguna dalam menjalankan berbagai aspek
-                        yang terkait dengan dunia properti.
+                        properti <span class="hidden">, mencakup kebutuhan pencari properti, pelaku usaha properti,
+                            pembeli furnitur, </span> dan
+                        individu yang berencana untuk membangun atau merenovasi properti. <span class="hidden"> Aplikasi
+                            ini menyajikan
+                            berbagai fitur yang dirancang untuk memudahkan pengguna dalam menjalankan berbagai aspek
+                            yang terkait dengan dunia properti.</span>
                     </div>
                 </div>
             </div>
@@ -401,55 +413,14 @@
     </section>
 
     <section>
-        <footer>
-            <div class="container footer-index">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <img src="{{ url('/img/logo.svg') }}" alt="" class="mb-3">
-                        <div class="reguler-text">
-                            +62 857-0275-0455 <br>
-                            cinurawa@gmail.com <br>
-                            info.cinurawa@gmail.com
-                        </div>
-                        <div class="medsos">
-                            <a href="https://www.facebook.com/">
-                                <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
-                            </a>
-                            <a href="https://twitter.com/BirawaCitra">
-                                <img src="{{ url('/img/icon-medsos/twitter.svg') }}" alt="" class="icon-medsos">
-                            </a>
-
-                            <a href="https://www.instagram.com/cinurawa.id/">
-                                <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="" class="icon-medsos">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <h3>Our Address</h3>
-                        <div class="reguler-text mt-24">
-                            Teaching Industry Learning Center UGM, <br> Sleman, Daerah Istimewa Yogyakarta <br>
-                            55281
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mt-24">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.1510599545036!2d110.36996687464045!3d-7.773801877118019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59a883bb28fb%3A0x71c2d1a3cabf9775!2sTeaching%20Industry%20Learning%20Center%20(TILC-UGM)!5e0!3m2!1sid!2sid!4v1695021286547!5m2!1sid!2sid"
-                            width="100%" height="100%" style="border: 1px;;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        @include("layout.footer")
     </section>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="{{ url('/js/owl.carousel.min.js') }}"></script>
     <script src="{{ url('/js/script.js') }}"></script>
 </body>

@@ -494,10 +494,6 @@ footer a {
 
 
 @media screen and (max-width: 768px) {
-    .reguler-text {
-        font-size: 14px;
-    }
-
     h2 {
         font-size: 28px;
         line-height: 36px;
@@ -517,7 +513,7 @@ footer a {
     }
 
     #hero p {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 24px;
     }
 
@@ -566,7 +562,7 @@ footer a {
     }
 
     #introduction iframe {
-        height: 100%;
+        height: 175%;
         width: 100%;
     }
 
@@ -577,10 +573,9 @@ footer a {
         text-align: justify;
     }
 
-    /* #services {
-        padding-top: 30px;
-        padding-bottom: 0;
-    } */
+    #services {
+        margin-top: 100px;
+    }
 
     #services img {
         padding-top: 50px;
@@ -590,8 +585,20 @@ footer a {
         margin-left: 75px; */
     }
 
+    .services img {
+        padding-top: 50px;
+        padding-bottom: 0;
+        width: 50%;
+        /* display: block;
+        margin-left: 75px; */
+    }
+
     .content-services {
         margin-top: 40px;
+    }
+
+    #portfolio {
+        padding-top: 25px;
     }
 
     #portfolio .see {
@@ -638,14 +645,6 @@ footer a {
         padding-bottom: 0;
     }
 
-    footer .reguler-text {
-        font-size: 14px;
-    }
-
-    footer .mt-24 {
-        margin-top: 10px;
-    }
-
     footer h3 {
         margin-top: 25px;
     }
@@ -670,8 +669,13 @@ footer a {
     padding: 0px 300px;
 }
 
-.hero-services span {
+.hero-services .works {
     color: var(--theme-primary);
+}
+
+.services {
+    padding-top: 100px;
+    padding-bottom: 125px;
 }
 
 
@@ -920,9 +924,8 @@ footer a {
     margin-right: 24px;
 }
 
-.mt-24 {
-    margin-top: 24px;
-}
+
+
 
 /* Blog Category */
 .blog-category-title {
@@ -971,8 +974,9 @@ footer a {
     padding: 100px 0px;
 }
 
-
-
+.footer-detail {
+    padding-top: 100px;
+}
 
 /* Media Queries Dif Pages */
 @media screen and (max-width: 768px) {
@@ -995,11 +999,11 @@ footer a {
     }
 
     .content {
-        margin-top: -125px;
+        margin-top: -100px;
     }
 
     .detail-portofolio {
-        padding-top: 0;
+        padding-top: 20px;
         margin-top: -40px;
     }
 
@@ -1014,7 +1018,6 @@ footer a {
     }
 
     .reguler-text {
-        font-size: 14px;
         line-height: 20px;
     }
 
@@ -1083,4 +1086,18 @@ footer a {
         padding-top: 75px;
         padding-bottom: 75px;
     }
+
+    footer .container {
+        padding-top: 75px;
+    }
+
+    footer iframe {
+        height: 175%;
+        width: 100%;
+    }
+
+    .hidden {
+        display: none;
+    }
+
 }

@@ -52,7 +52,7 @@
         </div>
     </section>
 
-    <section id="services">
+    <section class="services">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -73,9 +73,10 @@
                         <h3>Augmented Reality</h3>
                         <div class="reguler-text">
                             Bring your products directly into customers' lives with real-time information and
-                            interactive guidance. Customers can virtually see and feel the products in their physical
-                            environment, providing an amazing experience and aiding them in making more confident
-                            decisions.
+                            interactive guidance. <span class="hidden">Customers can virtually see and feel the products
+                                in their physical
+                                environment, providing an amazing experience and aiding them in making more confident
+                                decisions.</span>
                         </div>
                     </a>
                 </div>
@@ -101,8 +102,9 @@
                         <h3>Virtual Reality</h3>
                         <div class="reguler-text">
                             Embark on a captivating VR journey, from mesmerizing employee training to interactive
-                            product presentations. Create an awe-inspiring and lifelike atmosphere at every step. With
-                            VR, your brilliant ideas transform into unforgettable experiences.
+                            product presentations. <span class="hidden"> Create an awe-inspiring and lifelike atmosphere
+                                at every step. With
+                                VR, your brilliant ideas transform into unforgettable experiences.</span>
                         </div>
                     </a>
                 </div>
@@ -113,9 +115,10 @@
                     <a href="{{ route('services.mixed-reality') }}">
                         <h3>Mixed Reality</h3>
                         <div class="reguler-text">
-                            Enhance construction project efficiency by blending the virtual and real worlds. Share
-                            product concepts directly with clients, creating a captivating experience and delivering
-                            tangible added value at every project stage.
+                            Enhance construction project efficiency by blending the virtual and real worlds. <span
+                                class="hidden"> Share
+                                product concepts directly with clients, creating a captivating experience and delivering
+                                tangible added value at every project stage. </span>
                         </div>
                     </a>
                 </div>
@@ -123,7 +126,7 @@
                 <div class="col-md-6 text-end order2">
                     <a href="{{ route('services.mixed-reality') }}">
                         <center>
-                            <img src="{{ url('/img/mr.png') }}" alt="" class="img-fluid">
+                            <img src="{{ url('/img/mr2.png') }}" alt="" class="img-fluid">
                         </center>
                     </a>
                 </div>
@@ -144,57 +147,20 @@
                     <div class="reguler-text">
                         <a href="https://propertio.id/"><span style="color: #449eec;">Propertio.id</span></a>
                         adalah sebuah aplikasi inovatif yang menyediakan solusi komprehensif di bidang
-                        properti, mencakup kebutuhan pencari properti, pelaku usaha properti, pembeli furnitur, dan
-                        individu yang berencana untuk membangun atau merenovasi properti. Aplikasi ini menyajikan
-                        berbagai fitur yang dirancang untuk memudahkan pengguna dalam menjalankan berbagai aspek
-                        yang terkait dengan dunia properti.
+                        properti <span class="hidden">, mencakup kebutuhan pencari properti, pelaku usaha properti,
+                            pembeli furnitur, </span> dan
+                        individu yang berencana untuk membangun atau merenovasi properti. <span class="hidden"> Aplikasi
+                            ini menyajikan
+                            berbagai fitur yang dirancang untuk memudahkan pengguna dalam menjalankan berbagai aspek
+                            yang terkait dengan dunia properti.</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <img src="{{ url('/img/logo.svg') }}" alt="" class="mb-3">
-                        <div class="reguler-text">
-                            +62 857-0275-0455 <br>
-                            cinurawa@gmail.com <br>
-                            info.cinurawa@gmail.com
-                        </div>
-                        <div class="medsos">
-                            <a href="https://www.facebook.com/">
-                                <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
-                            </a>
-                            <a href="https://twitter.com/BirawaCitra">
-                                <img src="{{ url('/img/icon-medsos/twitter.svg') }}" alt="" class="icon-medsos">
-                            </a>
-                            <a href="https://www.instagram.com/cinurawa.id/">
-                                <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="" class="icon-medsos">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <h3>Our Address</h3>
-                        <div class="reguler-text mt-24">
-                            Teaching Industry Learning Center UGM, <br> Sleman, Daerah Istimewa Yogyakarta <br>
-                            55281
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mt-24">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.1510599545036!2d110.36996687464045!3d-7.773801877118019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59a883bb28fb%3A0x71c2d1a3cabf9775!2sTeaching%20Industry%20Learning%20Center%20(TILC-UGM)!5e0!3m2!1sid!2sid!4v1695021286547!5m2!1sid!2sid"
-                            width="100%" height="100%" style="border: 1px;;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">halo</iframe>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    <section class="footer-detail">
+        @include("layout.footer")
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
