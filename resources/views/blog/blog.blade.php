@@ -46,13 +46,13 @@
     </nav>
 
     <section id="hero">
-        <div class="container bg-hero-blog hero-services">
+        <div class="container bg-hero-blog hero-services scroll1">
             <div class="sub-heading-blog">Our Blog</div>
             <h1 class="text-center">Explore Our <span class="insight">Insights</span></h1>
         </div>
     </section>
 
-    <section id="search" class="search-blog">
+    <section id="search" class="search-blog scroll2">
         <div class="container">
             <div class="row search-container">
                 <div class="col-md-8">
@@ -88,8 +88,8 @@
 
     <section id="blog-content">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-6">
+            <div class="row ">
+                <div class="col-md-6 col-6 scroll1">
                     <a href="{{ route('blog.latest') }}">
                         <h2 class="mb-1">Latest</h2>
                     </a>
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row scroll2">
                 @foreach($posts->sortByDesc('created_at')->where('is_published', true)->take(3) as $post)
                     <div class="col-md-4 mt-5">
                         <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
@@ -150,7 +150,7 @@
     @endphp
     @if($publishedPosts->count() > 0)
         <section id="blog-content">
-            <div class="container pb-5">
+            <div class="container pb-5 scroll1">
                 <div class="row">
                     <div class="col-md-6 col-6">
                         <a href="{{ route('blog.category', ['category' => $category->name]) }}">
@@ -246,6 +246,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ url('/js/scroll-reveal.js') }}"></script>
 </body>
 
 </html>

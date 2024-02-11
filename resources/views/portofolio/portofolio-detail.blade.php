@@ -47,7 +47,7 @@
     <section id="hero">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 hero-card hero2">
+                <div class="col-md-6 hero-card hero2 scroll1">
                     <div class="sub-heading">
                         Our Portofolio
                     </div>
@@ -61,7 +61,7 @@
                         {{ $portofolio->sub_title }}
                     </p>
                 </div>
-                <div class="col-md-6 hero1 text-end">
+                <div class="col-md-6 hero1 text-end scroll3">
                     <div class="hero-card">
                         <img src="{{ asset('storage/' . $portofolio->thumbnail) }}" alt="{{ $portofolio->title }}"
                             class="img-fluid rounded">
@@ -73,12 +73,14 @@
 
     <section class="detail-portofolio">
         <div class="detail-services">
-            <div class="sub-heading pb-2">
-                {{ $portofolio->sub_title }}
-            </div>
-            <h2 class="pb-3">{{ $portofolio->title }}</h2>
-            <div class="reguler-text pb-3">
-                {!! $portofolio->content !!}
+            <div class="scroll1">
+                <div class="sub-heading pb-2">
+                    {{ $portofolio->sub_title }}
+                </div>
+                <h2 class="pb-3">{{ $portofolio->title }}</h2>
+                <div class="reguler-text pb-3">
+                    {!! $portofolio->content !!}
+                </div>
             </div>
         </div>
     </section>
@@ -90,6 +92,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ url('/js/scroll-reveal.js') }}"></script>
 </body>
 
 </html>

@@ -526,6 +526,10 @@ footer a {
 
 
 @media screen and (max-width: 768px) {
+    .navbar-toggler {
+        margin-right: 25px;
+    }
+
     h2 {
         font-size: 28px;
         line-height: 36px;
@@ -725,6 +729,7 @@ footer a {
 
 /* Detail Services */
 .detail-services {
+    padding-top: 75px;
     padding-left: 320px;
     padding-right: 320px;
 }
@@ -745,7 +750,7 @@ footer a {
 }
 
 .detail-portofolio {
-    padding-top: 50px;
+    padding-top: 75px;
 }
 
 .img-portofolio {
@@ -1034,6 +1039,10 @@ footer a {
     padding-top: 100px;
 }
 
+.detail-blog {
+    margin-top: -50px;
+}
+
 /* Media Queries Dif Pages */
 @media screen and (max-width: 768px) {
     .tag {
@@ -1168,5 +1177,9 @@ footer a {
 
     .footer-contact {
         padding-top: 150px;
+    }
+
+    .detail-blog {
+        margin-top: -80px;
     }
 }

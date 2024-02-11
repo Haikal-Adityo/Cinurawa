@@ -45,7 +45,7 @@
     </nav>
 
     <section id="hero">
-        <div class="container bg-hero-portofolio pt-5 pb-5 hero-services">
+        <div class="container bg-hero-portofolio pt-5 pb-5 hero-services scroll1">
             <h1 class="text-center">Journey Through Our <span class="works">Works</span></h1>
             <div class="reguler-text text-center mt-4 pb-5">
                 Embark on a visual odyssey through our diverse works and witness the transformative touch of CINURAWA.
@@ -62,15 +62,16 @@
     <div class="content">
         <section id="portfolio">
             <div class="container">
-                <div class="sub-heading text-center">
-                    Our Portfolio
+                <div class="scroll1">
+                    <div class="sub-heading text-center">
+                        Our Portfolio
+                    </div>
+                    <h2 class="text-center">Portfolio Showcase</h2>
+                    <div class="reguler-text text-center">
+                        Explore Our Diverse Range of Innovative Solutions
+                    </div>
                 </div>
-                <h2 class="text-center">Portfolio Showcase</h2>
-                <div class="reguler-text text-center">
-                    Explore Our Diverse Range of Innovative Solutions
-                </div>
-
-                <div class="row mt-4">
+                <div class="row mt-4 scroll4">
                     @foreach($portfolios->sortByDesc('created_at') as $portfolio)
                     <div class="col-md-4 frame">
                         <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
@@ -95,6 +96,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ url('/js/scroll-reveal.js') }}"></script>
 </body>
 
 </html>
