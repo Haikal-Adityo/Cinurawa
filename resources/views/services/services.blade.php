@@ -43,8 +43,9 @@
     </nav>
 
     <section id="hero">
-        <div class="container bg-hero-services pt-5 hero-services">
-            <h1 class="text-center">Discover Our <span>Solutions</span> to Realize Your Dreams</h1>
+        <div class="container bg-hero-services pt-5 hero-services scroll1">
+            <h1 class="text-center">Discover Our <span style="color: #D0920B;">Solutions</span> to Realize Your Dreams
+            </h1>
             <div class="reguler-text text-center mt-4 pb-5">
                 With CINURAWA, your dreams come to life. Explore our innovative solutions that surpass expectations,
                 shaping your vision into reality. Let's bring your dreams to fruition with CINURAWA.
@@ -54,20 +55,14 @@
 
     <section class="services">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="sub-heading">
-                        Our Services
-                    </div>
-                    <h2>Turn Imagination into Reality with Us</h2>
-                    <!-- <div class="reguler-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
-                    </div> -->
+            <div class="scroll1">
+                <div class="sub-heading text-center">
+                    Our Services
                 </div>
+                <h2 class="text-center">Turn Imagination into Reality with Us</h2>
             </div>
 
-            <div class="row content-services">
+            <div class="row content-services scroll4">
                 <div class="col-md-6">
                     <a href="{{ route('services.augmented-reality') }}">
                         <h3>Augmented Reality</h3>
@@ -81,21 +76,17 @@
                     </a>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="{{ route('services.augmented-reality') }}">
-                        <center>
-                            <img src="{{ url('/img/ar.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
+                    <center>
+                        <img src="{{ url('/img/ar.png') }}" alt="" class="img-fluid">
+                    </center>
                 </div>
             </div>
 
-            <div class="row content-services">
+            <div class="row content-services scroll3">
                 <div class="col-md-6 order2">
-                    <a href="{{ route('services.virtual-reality') }}">
-                        <center>
-                            <img src="{{ url('/img/vr.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
+                    <center>
+                        <img src="{{ url('/img/vr.png') }}" alt="" class="img-fluid">
+                    </center>
                 </div>
                 <div class="col-md-6 order1">
                     <a href="{{ route('services.virtual-reality') }}">
@@ -110,7 +101,7 @@
                 </div>
             </div>
 
-            <div class="row content-services">
+            <div class="row content-services scroll4">
                 <div class="col-md-6 order1">
                     <a href="{{ route('services.mixed-reality') }}">
                         <h3>Mixed Reality</h3>
@@ -124,21 +115,17 @@
                 </div>
 
                 <div class="col-md-6 text-end order2">
-                    <a href="{{ route('services.mixed-reality') }}">
-                        <center>
-                            <img src="{{ url('/img/mr2.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
+                    <center>
+                        <img src="{{ url('/img/mr2.png') }}" alt="" class="img-fluid">
+                    </center>
                 </div>
             </div>
 
-            <div class="row content-services">
+            <div class="row content-services scroll3">
                 <div class="col-md-6 order2">
-                    <a href="{{ route('services.propertio') }}">
-                        <center>
-                            <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
+                    <center>
+                        <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
+                    </center>
                 </div>
                 <div class="col-md-6 order1">
                     <a href="{{ route('services.propertio') }}">
@@ -166,6 +153,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ url('/js/scroll-reveal.js') }}"></script>
 </body>
 
 </html>

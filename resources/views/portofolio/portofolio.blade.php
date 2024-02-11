@@ -62,19 +62,15 @@
     <div class="content">
         <section id="portfolio">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="sub-heading">
-                            Our Portfolio
-                        </div>
-                        <h2>CINURAWA Portfolio Showcase</h2>
-                        <div class="reguler-text">
-                            Explore Our Diverse Range of Innovative Solutions
-                        </div>
-                    </div>
+                <div class="sub-heading text-center">
+                    Our Portfolio
+                </div>
+                <h2 class="text-center">Portfolio Showcase</h2>
+                <div class="reguler-text text-center">
+                    Explore Our Diverse Range of Innovative Solutions
                 </div>
 
-                <div class="row">
+                <div class="row mt-4">
                     @foreach($portfolios->sortByDesc('created_at') as $portfolio)
                     <div class="col-md-4 frame">
                         <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">

@@ -45,15 +45,11 @@
     </nav>
 
     <section id="hero">
-
         @yield('hero')
-
     </section>
 
     <section class="detail-services">
-
         @yield('services-detail')
-
     </section>
 
     <section id="value-services">
@@ -61,9 +57,7 @@
     </section>
 
     <section id="portfolio">
-
         @yield('documentation')
-
     </section>
 
     <section>

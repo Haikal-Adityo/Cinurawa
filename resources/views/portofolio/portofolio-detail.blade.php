@@ -73,10 +73,10 @@
 
     <section class="detail-portofolio">
         <div class="detail-services">
-            <div class="sub-heading">
+            <div class="sub-heading pb-2">
                 {{ $portofolio->sub_title }}
             </div>
-            <h2 class="mb-3">{{ $portofolio->title }}</h2>
+            <h2 class="pb-3">{{ $portofolio->title }}</h2>
             <div class="reguler-text pb-3">
                 {!! $portofolio->content !!}
             </div>

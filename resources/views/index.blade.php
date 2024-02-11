@@ -49,7 +49,7 @@
     <section id="hero">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 hero-card hero1">
+                <div class="col-md-6 hero-card hero1 scroll1">
                     <h1>
                         Extraordinary imaginations come true
                     </h1>
@@ -62,7 +62,7 @@
                         </span>
                     </p>
                     <a href="https://wa.me/6285702750455" />
-                    <button class="button-primary me-1">Contact Us
+                    <button class="button-primary me-3">Contact Us
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path
                                 d="M12.3567 1.69675C12.3567 1.28254 12.0209 0.946749 11.6067 0.946744L4.85673 0.946666C4.44252 0.946661 4.10673 1.28244 4.10672 1.69666C4.10672 2.11087 4.4425 2.44666 4.85671 2.44667L10.8567 2.44674L10.8566 8.44673C10.8566 8.86095 11.1924 9.19674 11.6066 9.19674C12.0209 9.19675 12.3566 8.86097 12.3566 8.44675L12.3567 1.69675ZM1.53032 12.8336L12.137 2.22708L11.0764 1.16641L0.469676 11.7729L1.53032 12.8336Z"
@@ -82,7 +82,7 @@
                         </button>
                     </a>
                 </div>
-                <div class="col-md-6 hero2">
+                <div class="col-md-6 hero2 scroll3">
                     <div class="hero-card">
                         <img src="{{ url('/img/hero.png') }}" alt="Judul Profil" class="img-fluid">
                     </div>
@@ -93,22 +93,26 @@
 
     <section id="introduction">
         <div class="container">
-            <div class="sub-heading text-center">
-                Introduction
-            </div>
-            <h2 class="text-center mb-3">Who we are</h2>
-            <div class="reguler-text text">
-                CINURAWA is a leading innovator in the realm of immersive technology, dedicated to turning digital
-                wonders into tangible reality. <span class="hidden">Our passion lies in making extraordinary ideas a
-                    reality, firmly
-                    believing that every great idea deserves to come to life.
+            <div class="scroll1">
+                <div class="sub-heading text-center">
+                    Introduction
+                </div>
+                <h2 class="text-center mb-3">Who we are</h2>
+                <div class="reguler-text text">
+                    CINURAWA is a leading innovator in the realm of immersive technology, dedicated to turning digital
+                    wonders into tangible reality. <span class="hidden">Our passion lies in making extraordinary ideas a
+                        reality, firmly
+                        believing that every great idea deserves to come to life.
 
-                    As enthusiastic partners, we collaborate closely with you to craft revolutionary experiences using
-                    cutting-edge immersive technology. Our team is not just a solution provider; we are your dedicated
-                    allies, guiding you step by step in bringing your visions to life.</span>
+                        As enthusiastic partners, we collaborate closely with you to craft revolutionary experiences
+                        using
+                        cutting-edge immersive technology. Our team is not just a solution provider; we are your
+                        dedicated
+                        allies, guiding you step by step in bringing your visions to life.</span>
+                </div>
             </div>
 
-            <div class="row">
+            <div class="row scroll4">
                 <div class="col-md-12 text-center">
                     <iframe width="888" height="514" src="https://www.youtube.com/embed/swK-sxvbXRI?si=Z3yF_Xkbk5QJgDP0"
                         title="YouTube video player" frameborder="0"
@@ -123,20 +127,14 @@
 
     <section id="services">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="sub-heading">
-                        Our Services
-                    </div>
-                    <h2>Turn Imagination into Reality with Us</h2>
-                    <!-- <div class="reguler-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
-                    </div> -->
+            <div class="scroll1">
+                <div class="sub-heading text-center">
+                    Our Services
                 </div>
+                <h2 class="text-center">Turn Imagination into Reality with Us</h2>
             </div>
 
-            <div class="row content-services">
+            <div class="row content-services scroll4">
                 <div class="col-md-6">
                     <a href="{{ route('services.augmented-reality') }}">
                         <h3>Augmented Reality</h3>
@@ -150,21 +148,17 @@
                     </a>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="{{ route('services.augmented-reality') }}">
-                        <center>
-                            <img src="{{ url('/img/ar.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
+                    <center>
+                        <img src="{{ url('/img/ar.png') }}" alt="" class="img-fluid">
+                    </center>
                 </div>
             </div>
 
-            <div class="row content-services">
+            <div class="row content-services scroll3">
                 <div class="col-md-6 order2">
-                    <a href="{{ route('services.virtual-reality') }}">
-                        <center>
-                            <img src="{{ url('/img/vr.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
+                    <center>
+                        <img src="{{ url('/img/vr.png') }}" alt="" class="img-fluid">
+                    </center>
                 </div>
                 <div class="col-md-6 order1">
                     <a href="{{ route('services.virtual-reality') }}">
@@ -179,7 +173,7 @@
                 </div>
             </div>
 
-            <div class="row content-services">
+            <div class="row content-services scroll4">
                 <div class="col-md-6 order1">
                     <a href="{{ route('services.mixed-reality') }}">
                         <h3>Mixed Reality</h3>
@@ -193,21 +187,17 @@
                 </div>
 
                 <div class="col-md-6 text-end order2">
-                    <a href="{{ route('services.mixed-reality') }}">
-                        <center>
-                            <img src="{{ url('/img/mr2.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
+                    <center>
+                        <img src="{{ url('/img/mr2.png') }}" alt="" class="img-fluid">
+                    </center>
                 </div>
             </div>
 
-            <div class="row content-services">
+            <div class="row content-services scroll3">
                 <div class="col-md-6 order2">
-                    <a href="{{ route('services.propertio') }}">
-                        <center>
-                            <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
-                        </center>
-                    </a>
+                    <center>
+                        <img src="{{ url('/img/propertio.png') }}" alt="" class="img-fluid">
+                    </center>
                 </div>
                 <div class="col-md-6 order1">
                     <a href="{{ route('services.propertio') }}">
@@ -229,14 +219,8 @@
     </section>
 
     <section id="why">
-        <div class="container">
+        <div class="container scroll1">
             <h2 class="text-center">Why Choose Us</h2>
-            <!-- <div class="reguler-text text-center text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et
-                dolore magna aliqua.
-            </div> -->
-
             <div class="row mt-5">
                 <div class="col-md-4">
                     <div class="card-why">
@@ -276,7 +260,7 @@
 
     <section id="portfolio">
         <div class="container">
-            <div class="row">
+            <div class="row scroll1">
                 <div class="col-md-8">
                     <div class="sub-heading">
                         Our Portfolio
@@ -294,13 +278,13 @@
                     </a>
                 </div>
 
-                <h2>CINURAWA Portfolio Showcase</h2>
+                <h2>Portfolio Showcase</h2>
                 <div class="reguler-text">
                     Explore Our Diverse Range of Innovative Solutions
                 </div>
             </div>
 
-            <div class="row mb-3">
+            <div class="row mb-3 scroll4">
                 @foreach($portfolios->sortByDesc('created_at') as $portfolio)
                 <div class="col-md-4 frame">
                     <a href="{{ route('portofolio.show', ['slug' => $portfolio->slug]) }}">
@@ -319,15 +303,15 @@
 
     <section id="reviews">
         <div class="container">
-            <div class="sub-heading text-center">
+            <div class="sub-heading text-center scroll1">
                 Reviews
             </div>
-            <h2 class="text-center">What They says</h2>
+            <h2 class="text-center scroll1">What They says</h2>
             <!-- <div class="reguler-text text-center text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua.
             </div> -->
-            <div class="slider">
+            <div class="slider scroll3">
                 <div class="owl-carousel">
                     <div class="slider-card">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -375,15 +359,17 @@
 
     <section id="reviews">
         <div class="container">
-            <div class="sub-heading text-center">
-                Our Partners
-            </div>
-            <h2 class="text-center">Research and Clients</h2>
-            <div class="reguler-text text-center">
-                We’ve been working with teams around the world
+            <div class="scroll1">
+                <div class="sub-heading text-center">
+                    Our Partners
+                </div>
+                <h2 class="text-center">Research and Clients</h2>
+                <div class="reguler-text text-center">
+                    We’ve been working with teams around the world
+                </div>
             </div>
 
-            <div id="owl-demo" class="owl-carousel owl-theme">
+            <div id="owl-demo" class="owl-carousel owl-theme scroll3">
                 <img src="{{ url('/img/partner/bca.png') }}" alt="">
                 <img src="{{ url('/img/partner/grab.png') }}" alt="">
                 <img src="{{ url('/img/partner/blibli.png') }}" alt="">
@@ -395,7 +381,7 @@
     </section>
 
     <section id="contact">
-        <div class="container">
+        <div class="container scroll1">
             <div class="card-contact">
                 <h2 class="text-contact">Ready to Bring Your Imagination to Life? Get in Touch with Us
                 </h2>
@@ -423,6 +409,8 @@
         </script>
     <script src="{{ url('/js/owl.carousel.min.js') }}"></script>
     <script src="{{ url('/js/script.js') }}"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ url('/js/scroll-reveal.js') }}"></script>
 </body>
 
 </html>

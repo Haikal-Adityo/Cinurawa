@@ -46,7 +46,7 @@
 
     <section id="hero">
         <div class="container bg-hero-portofolio hero-services">
-            <h1 class="text-center">Where Imagination Meets <span>Reality</span> </h1>
+            <h1 class="text-center">Where Imagination Meets <span style="color: #D0920B;">Reality</span> </h1>
             <!-- <div class="reguler-text text-center mt-4 pb-5">
                 lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet
                 megalodon lorem ipsum dolor sit amet
@@ -159,7 +159,7 @@
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ url('/img/abous-us/name.png') }}" alt="" class="img-fluid mx-auto d-block">
+                    <img src="{{ url('/img/abous-us/name.png') }}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -224,7 +224,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

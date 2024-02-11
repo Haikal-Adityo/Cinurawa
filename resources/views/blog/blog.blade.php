@@ -150,7 +150,7 @@
     @endphp
     @if($publishedPosts->count() > 0)
         <section id="blog-content">
-            <div class="container">
+            <div class="container pb-5">
                 <div class="row">
                     <div class="col-md-6 col-6">
                         <a href="{{ route('blog.category', ['category' => $category->name]) }}">
@@ -178,19 +178,19 @@
 
                             <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
                                 @if($post->category && $post->category->name == 'Property')
-                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Financial')
-                                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Architecture')
-                                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Creativity')
-                                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Lifestyle')
-                                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Culture')
-                                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @else
-                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @endif
                             </a>
 
@@ -211,19 +211,19 @@
 
                             <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
                                 @if($post->category && $post->category->name == 'Property')
-                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Financial')
-                                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/financial-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Architecture')
-                                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/architecture-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Creativity')
-                                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/creativity-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Lifestyle')
-                                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/lifestyle-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @elseif($post->category && $post->category->name == 'Culture')
-                                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label mt-24">
+                                    <img src="{{ url('/img/blogs/culture-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @else
-                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
+                                    <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label mt-3 mb-3">
                                 @endif
                             </a>
 
@@ -234,13 +234,11 @@
                         </div>
                     @endforeach
                 </div>
-
             </div>
         </section>
         @endif
     @endforeach
 
-   
     <section>
         @include("layout.footer")
     </section>
