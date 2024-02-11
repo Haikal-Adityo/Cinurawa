@@ -45,25 +45,21 @@
     </nav>
 
     <section id="hero">
-        <div class="container bg-hero-portofolio hero-services">
+        <div class="container bg-hero-portofolio hero-services scroll1">
             <h1 class="text-center">Where Imagination Meets <span style="color: #D0920B;">Reality</span> </h1>
-            <!-- <div class="reguler-text text-center mt-4 pb-5">
-                lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet megalodon lorem ipsum dolor sit amet
-                megalodon lorem ipsum dolor sit amet
-            </div> -->
         </div>
     </section>
 
     <section id="about-us">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 scroll4">
                     <div class="sub-heading">
                         Introduction
                     </div>
                     <h2>We’ll Brings Imaginations Came True </h2>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 scroll3">
                     <div class="reguler-text text-about">
                         <p>
                             CINURAWA stands at the forefront of immersive technology, leading the charge to transform
@@ -99,7 +95,7 @@
     <section id="vision">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 order2">
+                <div class="col-md-8 order2 scroll4">
                     <div class="card-vision">
                         <div class="d-flex">
                             <div><img src="{{ url('/img/abous-us/customer.png') }}" alt=""></div>
@@ -135,7 +131,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 our-vision order1">
+                <div class="col-md-4 our-vision order1 scroll1">
                     <div class="sub-heading ">
                         Our Vision
                     </div>
@@ -148,7 +144,7 @@
     <section id="name">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 scroll1">
                     <div class="sub-heading">
                         CEO & Founder of Cinurawa
                     </div>
@@ -158,14 +154,14 @@
                         Technology, with a focus on providing solutions and transforming imagination into reality.
                     </p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 scroll3">
                     <img src="{{ url('/img/abous-us/name.png') }}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pb-5 pt-5">
+    <section class="pb-5 pt-5 scroll1">
         <div class="container">
             <div class="contact1">
                 <h2 class="text-contact1">Ready to Bring Your Imagination to Life? Get in Touch with Us
@@ -184,13 +180,13 @@
     </section>
 
     <section id="gallery-name">
-        <div class="container">
+        <div class="container scroll1">
             <h2 class="text-center">Gallery</h2>
             <div class="reguler-text text-center text">
                 Check out some exciting activities we've been up to!
             </div>
 
-            <div class="row mt-5">
+            <div class="row mt-5 scroll1">
                 <div class="col-md-4 mb-5">
                     <img src="{{ url('/img/gallery/1.png') }}" alt="" class="img-fluid mx-auto">
                 </div>
@@ -225,6 +221,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ url('/js/scroll-reveal.js') }}"></script>
 </body>
 
 </html>
