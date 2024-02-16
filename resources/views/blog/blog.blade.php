@@ -137,7 +137,6 @@
                         <div class="sub-title">{{ $post->created_at->diffForHumans() }}</div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </section>

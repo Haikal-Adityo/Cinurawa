@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    
+
     public function index()
     {
         $posts = Post::with('category', 'tags')
@@ -39,8 +39,8 @@ class PostController extends Controller
         $posts = Post::with('category', 'tags')
             ->where('is_published', true)
             ->latest('created_at')
-            ->get();
-    
+            ->paginate(3);
+
         $categories = Category::distinct()->get();
         $categoryModel = new Category(['name' => 'Latest Posts']);
 
@@ -62,7 +62,7 @@ class PostController extends Controller
             if (strlen($contentWithoutTags) > 150) {
                 $truncatedContent .= '...';
             }
-            
+
             $post->content = $truncatedContent;
         }
 
@@ -74,7 +74,7 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-    
+
         $posts = Post::with('category', 'tags')
             ->where('title', 'like', '%' . $query . '%')
             ->orWhereHas('tags', function ($tagQuery) use ($query) {
@@ -82,13 +82,13 @@ class PostController extends Controller
             })
             ->where('is_published', true)
             ->get();
-    
+
         $postCount = $posts->count();
-    
+
         $categories = Category::distinct()->get();
-    
+
         return view('blog.blog-search', compact('posts', 'categories', 'query', 'postCount'));
     }
-    
+
 
 }

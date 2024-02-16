@@ -101,7 +101,6 @@
                             <div class="blog-category-title mb-2">{{ $post->title }}</div>
                             <div class="blog-category-subtitle">{!! $post->content !!}</div>
                             <div class="blog-category-time d-flex">
-
                                 <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
                                     @if($post->category && $post->category->name == 'Property')
                                     <img src="{{ url('/img/blogs/property-label.png') }}" alt="" class="img-blog-label">
@@ -128,6 +127,7 @@
                                     {{ $post->created_at->diffForHumans() }}
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -142,6 +142,7 @@
                 </div>
             </div>
             @endif
+            <div class="mt-5 d-flex justify-content-center">{{ $posts->links() }}
         </div>
     </section>
 
