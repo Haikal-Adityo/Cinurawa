@@ -53,7 +53,7 @@ class PostController extends Controller
         $posts = $categoryModel->posts()
             ->where('is_published', true)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(3);
 
         foreach ($posts as $post) {
             $contentWithoutTags = strip_tags($post->content);
@@ -81,7 +81,7 @@ class PostController extends Controller
                 $tagQuery->where('name', 'like', '%' . $query . '%');
             })
             ->where('is_published', true)
-            ->get();
+            ->paginate(3);
 
         $postCount = $posts->count();
 
@@ -89,6 +89,4 @@ class PostController extends Controller
 
         return view('blog.blog-search', compact('posts', 'categories', 'query', 'postCount'));
     }
-
-
 }
