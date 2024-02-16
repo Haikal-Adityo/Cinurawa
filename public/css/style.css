@@ -214,6 +214,15 @@ button {
 }
 
 
+
+.dropdown-toggle {
+    background-color: transparent;
+    color: #000;
+    border: none;
+    padding: 0;
+}
+
+
 /* Akhir Design System */
 
 section {

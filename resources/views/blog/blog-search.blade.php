@@ -46,17 +46,34 @@
     </nav>
 
     <section id="search" class="search-margin-top">
-        <div class="container">
+    <div class="container">
             <div class="row search-container">
                 <div class="col-md-8">
                     <div class="row row-search">
-                        <div class="col"><a href="{{ route('blog.index') }}">Home</a></div>
-                        @foreach($categories as $navCategory)
-                        <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{
-                                $navCategory->name }}</a></div>
+                        <div class="col"><a href="#">Home</a></div>
+
+                        @foreach($categories->take(4) as $navCategory)
+                            <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a></div>
                         @endforeach
+
+                        @if(count($categories) > 4)
+                            <div class="col">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        More Category
+                                    </button>
+                                        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                                                            @foreach($categories->slice(4) as $navCategory)
+                                                                <a class="dropdown-item" href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a>
+                                                            @endforeach
+                                        </div>
+                                        </div>
+                                </div>
+                                    @endif
+                            </div>
                     </div>
-                </div>
+                
+
                 <div class="col-md-4">
                     <form action="{{ route('blog.search')}}" method="GET">
                         @csrf
