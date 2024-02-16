@@ -56,16 +56,13 @@ class PostController extends Controller
             ->get();
 
         foreach ($posts as $post) {
-            // Strip HTML tags and limit the content to 150 characters
             $contentWithoutTags = strip_tags($post->content);
             $truncatedContent = substr($contentWithoutTags, 0, 350);
 
-            // Add "..." if the original content has more than 150 characters
             if (strlen($contentWithoutTags) > 150) {
                 $truncatedContent .= '...';
             }
-
-            // Replace the original content with the truncated and formatted version
+            
             $post->content = $truncatedContent;
         }
 

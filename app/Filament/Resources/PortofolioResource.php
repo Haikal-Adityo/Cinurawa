@@ -64,7 +64,7 @@ class PortofolioResource extends Resource
                         
                                 $set('slug', $slug);
                             }),
-                            
+                        
                         TextInput::make('slug')
                             ->disabled()
                             ->dehydrated()
