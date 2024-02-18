@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    
+
     public function index()
     {
         $posts = Post::with('category', 'tags')
@@ -39,7 +39,7 @@ class PostController extends Controller
         $posts = Post::with('category', 'tags')
             ->where('is_published', true)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(3);
 
         foreach ($posts as $post) {
             $contentWithoutTags = strip_tags($post->content);
@@ -56,7 +56,7 @@ class PostController extends Controller
                 $post->content = $contentWithoutTags;
             }
         }
-    
+
         $categories = Category::distinct()->get();
         $categoryModel = new Category(['name' => 'Latest Posts']);
 
@@ -69,7 +69,7 @@ class PostController extends Controller
         $posts = $categoryModel->posts()
             ->where('is_published', true)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(3);
     
         foreach ($posts as $post) {
             $contentWithoutTags = strip_tags($post->content);
@@ -96,21 +96,19 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-    
+
         $posts = Post::with('category', 'tags')
             ->where('title', 'like', '%' . $query . '%')
             ->orWhereHas('tags', function ($tagQuery) use ($query) {
                 $tagQuery->where('name', 'like', '%' . $query . '%');
             })
             ->where('is_published', true)
-            ->get();
-    
+            ->paginate(3);
+
         $postCount = $posts->count();
-    
+
         $categories = Category::distinct()->get();
-    
+
         return view('blog.blog-search', compact('posts', 'categories', 'query', 'postCount'));
     }
-    
-
 }

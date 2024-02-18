@@ -58,12 +58,29 @@
                 <div class="col-md-8">
                     <div class="row row-search">
                         <div class="col"><a href="#">Home</a></div>
-                        @foreach($categories as $navCategory)
+
+                        @foreach($categories->take(4) as $navCategory)
                             <div class="col"><a href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a></div>
                         @endforeach
+
+                        @if(count($categories) > 4)
+                            <div class="col">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        More Category
+                                    </button>
+                                        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                                                            @foreach($categories->slice(4) as $navCategory)
+                                                                <a class="dropdown-item" href="{{ route('blog.category', ['category' => $navCategory->name]) }}">{{ $navCategory->name }}</a>
+                                                            @endforeach
+                                        </div>
+                                        </div>
+                                </div>
+                                    @endif
+                            </div>
                     </div>
-                </div>
                 
+
                 <div class="col-md-4">
                     <form action="{{ route('blog.search')}}" method="GET">
                         @csrf
@@ -137,7 +154,6 @@
                         <div class="sub-title">{{ $post->created_at->diffForHumans() }}</div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </section>
@@ -246,6 +262,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="{{ url('/js/scroll-reveal.js') }}"></script>
 </body>
