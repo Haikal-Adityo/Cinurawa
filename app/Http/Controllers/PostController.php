@@ -38,8 +38,24 @@ class PostController extends Controller
     {
         $posts = Post::with('category', 'tags')
             ->where('is_published', true)
-            ->latest('created_at')
+            ->orderBy('created_at', 'desc')
             ->get();
+
+        foreach ($posts as $post) {
+            $contentWithoutTags = strip_tags($post->content);
+    
+            if (strlen($contentWithoutTags) > 225) {
+                $truncatedContent = substr($contentWithoutTags, 0, 225);
+                $lastSpace = strrpos($truncatedContent, ' ');
+                if ($lastSpace !== false) {
+                    $post->content = substr($truncatedContent, 0, $lastSpace) . '...';
+                } else {
+                    $post->content = $truncatedContent . '...';
+                }
+            } else {
+                $post->content = $contentWithoutTags;
+            }
+        }
     
         $categories = Category::distinct()->get();
         $categoryModel = new Category(['name' => 'Latest Posts']);
@@ -54,23 +70,29 @@ class PostController extends Controller
             ->where('is_published', true)
             ->orderBy('created_at', 'desc')
             ->get();
-
+    
         foreach ($posts as $post) {
             $contentWithoutTags = strip_tags($post->content);
-            $truncatedContent = substr($contentWithoutTags, 0, 350);
-
-            if (strlen($contentWithoutTags) > 150) {
-                $truncatedContent .= '...';
+    
+            if (strlen($contentWithoutTags) > 225) {
+                $truncatedContent = substr($contentWithoutTags, 0, 225);
+                $lastSpace = strrpos($truncatedContent, ' ');
+                if ($lastSpace !== false) {
+                    $post->content = substr($truncatedContent, 0, $lastSpace) . '...';
+                } else {
+                    $post->content = $truncatedContent . '...';
+                }
+            } else {
+                $post->content = $contentWithoutTags;
             }
-            
-            $post->content = $truncatedContent;
         }
-
+    
         $categories = Category::distinct()->get();
-
+    
         return view('blog.blog-category', compact('posts', 'categories', 'categoryModel'));
     }
-
+    
+    
     public function search(Request $request)
     {
         $query = $request->input('query');

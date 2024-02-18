@@ -100,6 +100,7 @@
                         <div class="col-md-9">
                             <div class="blog-category-title mb-2">{{ $post->title }}</div>
                             <div class="blog-category-subtitle">{!! $post->content !!}</div>
+                            <br/>
                             <div class="blog-category-time d-flex">
 
                                 <a href="{{ route('blog.category', ['category' => $post->category->name]) }}">
@@ -133,6 +134,7 @@
                 </div>
             </div>
             @endforeach
+            
             @else
             <div class="d-flex pb-5">
                 <div class="me-24"><img src="{{ url('/img/blogs/category icon.png') }}" alt=""></div>
