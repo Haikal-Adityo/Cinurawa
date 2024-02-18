@@ -271,6 +271,8 @@ section {
 
 .content-services img {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 60%;
+    height: auto;
 }
 
 .content-services img:hover {
@@ -621,7 +623,7 @@ footer a {
         margin-top: 100px;
     }
 
-    #services img {
+    .content-services img {
         padding-top: 50px;
         padding-bottom: 0;
         width: 50%;
@@ -635,14 +637,6 @@ footer a {
 
     .services {
         margin-top: -100px;
-    }
-
-    .services img {
-        padding-top: 50px;
-        padding-bottom: 0;
-        width: 50%;
-        /* display: block;
-        margin-left: 75px; */
     }
 
     .content-services {
@@ -771,6 +765,13 @@ footer a {
 
 
 /* Abous Us */
+.ceo-img {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .text-about {
     padding-left: 100px;
 }

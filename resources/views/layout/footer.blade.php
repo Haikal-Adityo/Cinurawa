@@ -21,15 +21,16 @@
                     </svg>info.cinurawa@gmail.com
                 </div>
                 <div class="medsos">
-                    <a href="https://www.facebook.com/">
-                        <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="" class="icon-medsos">
+                    <a
+                        href="https://web.facebook.com/people/Cinurawa-Id/pfbid02boHtG52Fiqea1HjSx3fLdArn15jXT8zJaJRR2nT7QhY1Lw4oarjbVnYe2z7TEWN9l/">
+                        <img src="{{ url('/img/icon-medsos/facebook.svg') }}" alt="icon facebook" class="icon-medsos">
                     </a>
                     <a href="https://twitter.com/BirawaCitra">
-                        <img src="{{ url('/img/icon-medsos/twitter.svg') }}" alt="" class="icon-medsos">
+                        <img src="{{ url('/img/icon-medsos/twitter.svg') }}" alt="icon twitter" class="icon-medsos">
                     </a>
 
                     <a href="https://www.instagram.com/cinurawa.id/">
-                        <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="" class="icon-medsos">
+                        <img src="{{ url('/img/icon-medsos/instagram.svg') }}" alt="icon instagram" class="icon-medsos">
                     </a>
                 </div>
             </div>

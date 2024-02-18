@@ -188,7 +188,7 @@
 
                 <div class="col-md-6 text-end order2">
                     <center>
-                        <img src="{{ url('/img/mr2.png') }}" alt="" class="img-fluid">
+                        <img src="{{ url('/img/mr.png') }}" alt="" class="img-fluid">
                     </center>
                 </div>
             </div>

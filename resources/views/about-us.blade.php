@@ -54,7 +54,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 scroll4">
-                    <div class="sub-heading">
+                    <div class="sub-heading pt-5">
                         Introduction
                     </div>
                     <h2>We’ll Brings Imaginations Came True </h2>
@@ -144,7 +144,7 @@
     <section id="name">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 scroll1">
+                <div class="col-md-7 scroll1">
                     <div class="sub-heading">
                         CEO & Founder of Cinurawa
                     </div>
@@ -154,8 +154,8 @@
                         Technology, with a focus on providing solutions and transforming imagination into reality.
                     </p>
                 </div>
-                <div class="col-md-6 scroll3">
-                    <img src="{{ url('/img/abous-us/name.png') }}" alt="" class="img-fluid">
+                <div class="col-md-5 scroll3">
+                    <img src="{{ url('/img/abous-us/ceo.png') }}" alt="" class="img-fluid ceo-img">
                 </div>
             </div>
         </div>
