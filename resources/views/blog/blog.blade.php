@@ -14,7 +14,7 @@
     <link rel="icon" href="{{ url('/img/logo-black.png') }}">
 </head>
 
-<body>
+<body style="background-color:#F5F7FC">
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{{ route('home') }}">

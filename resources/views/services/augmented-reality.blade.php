@@ -26,20 +26,22 @@
 
 @section('services-detail')
 <div class="scroll1">
-    <div class="sub-heading">
+    <div class="sub-heading text-center">
         This is Subheader
     </div>
-    <h2 class="mb-3">This is Header</h2>
-    <div class="reguler-text">
+    <h2 class="mb-3 text-center">This is Header</h2>
+    <div class="reguler-text text-center">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
         dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
         ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
         fugiat nulla pariatur.
     </div>
 </div>
-<img src="{{ url('/img/detail-services/1.png') }}" alt="" class="img-fluid mt-4 scroll1">
+<center>
+<img src="{{ url('/img/detail-services/1.png') }}" alt="" class="img-fluid mt-4 scroll1 text-center">
+</center>
 
-<div class="scroll1">
+<div class="scroll1 text-center">
     <div class="sub-heading pt-5">
         This is Subheader
     </div>
@@ -51,7 +53,9 @@
         fugiat nulla pariatur.
     </div>
 </div>
+<center>
 <img src="{{ url('/img/detail-services/1.png') }}" alt="" class="img-fluid mt-4 scroll1">
+</center>
 @endsection
 
 @section('services-value')
