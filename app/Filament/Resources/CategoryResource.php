@@ -12,6 +12,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -38,8 +39,13 @@ class CategoryResource extends Resource
                     TextInput::make('name')
                     ->required()
                     ->live(onBlur: true)
-                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) => 
-                        $operation === 'create' ? $set('slug', Str::slug($state)) : null),
+                    ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
+                        if (($get('slug') ?? '') !== Str::slug($old)) {
+                            return;
+                        }
+                    
+                        $set('slug', Str::slug($state));
+                    }),
 
                     TextInput::make('slug')
                         ->disabled()
