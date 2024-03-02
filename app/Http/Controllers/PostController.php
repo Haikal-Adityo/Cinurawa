@@ -105,7 +105,25 @@ class PostController extends Controller
             ->where('is_published', true)
             ->paginate(3);
 
-        $postCount = $posts->count();
+        foreach ($posts as $post) {
+            $contentWithoutTags = strip_tags($post->content);
+    
+            if (strlen($contentWithoutTags) > 225) {
+                $truncatedContent = substr($contentWithoutTags, 0, 225);
+                $lastSpace = strrpos($truncatedContent, ' ');
+                if ($lastSpace !== false) {
+                    $post->content = substr($truncatedContent, 0, $lastSpace) . '...';
+                } else {
+                    $post->content = $truncatedContent . '...';
+                }
+            } else {
+                $post->content = $contentWithoutTags;
+            }
+        }
+
+        $postCount = Post::where('title', 'like', '%' . $query . '%')
+            ->where('is_published', true)
+            ->count();
 
         $categories = Category::distinct()->get();
 
