@@ -301,7 +301,7 @@
         </div>
     </section>
 
-    <section id="reviews">
+    {{-- <section id="reviews">
         <div class="container">
             <div class="sub-heading text-center scroll1">
                 Reviews
@@ -355,7 +355,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section id="reviews">
         <div class="container">

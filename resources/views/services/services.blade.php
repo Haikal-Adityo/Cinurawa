@@ -64,16 +64,14 @@
 
             <div class="row content-services scroll4">
                 <div class="col-md-6">
-                    <a href="{{ route('services.augmented-reality') }}">
-                        <h3>Augmented Reality</h3>
-                        <div class="reguler-text">
-                            Bring your products directly into customers' lives with real-time information and
-                            interactive guidance. <span class="hidden">Customers can virtually see and feel the products
-                                in their physical
-                                environment, providing an amazing experience and aiding them in making more confident
-                                decisions.</span>
-                        </div>
-                    </a>
+                    <h3>Augmented Reality</h3>
+                    <div class="reguler-text">
+                        Bring your products directly into customers' lives with real-time information and
+                        interactive guidance. <span class="hidden">Customers can virtually see and feel the products
+                            in their physical
+                            environment, providing an amazing experience and aiding them in making more confident
+                            decisions.</span>
+                    </div>
                 </div>
                 <div class="col-md-6 text-end">
                     <center>
@@ -89,29 +87,25 @@
                     </center>
                 </div>
                 <div class="col-md-6 order1">
-                    <a href="{{ route('services.virtual-reality') }}">
-                        <h3>Virtual Reality</h3>
-                        <div class="reguler-text">
-                            Embark on a captivating VR journey, from mesmerizing employee training to interactive
-                            product presentations. <span class="hidden"> Create an awe-inspiring and lifelike atmosphere
-                                at every step. With
-                                VR, your brilliant ideas transform into unforgettable experiences.</span>
-                        </div>
-                    </a>
+                    <h3>Virtual Reality</h3>
+                    <div class="reguler-text">
+                        Embark on a captivating VR journey, from mesmerizing employee training to interactive
+                        product presentations. <span class="hidden"> Create an awe-inspiring and lifelike atmosphere
+                            at every step. With
+                            VR, your brilliant ideas transform into unforgettable experiences.</span>
+                    </div>
                 </div>
             </div>
 
             <div class="row content-services scroll4">
                 <div class="col-md-6 order1">
-                    <a href="{{ route('services.mixed-reality') }}">
-                        <h3>Mixed Reality</h3>
-                        <div class="reguler-text">
-                            Enhance construction project efficiency by blending the virtual and real worlds. <span
-                                class="hidden"> Share
-                                product concepts directly with clients, creating a captivating experience and delivering
-                                tangible added value at every project stage. </span>
-                        </div>
-                    </a>
+                    <h3>Mixed Reality</h3>
+                    <div class="reguler-text">
+                        Enhance construction project efficiency by blending the virtual and real worlds. <span
+                            class="hidden"> Share
+                            product concepts directly with clients, creating a captivating experience and delivering
+                            tangible added value at every project stage. </span>
+                    </div>
                 </div>
 
                 <div class="col-md-6 text-end order2">
@@ -128,9 +122,7 @@
                     </center>
                 </div>
                 <div class="col-md-6 order1">
-                    <a href="{{ route('services.propertio') }}">
-                        <h3>Propertio</h3>
-                    </a>
+                    <h3>Propertio</h3>
                     <div class="reguler-text">
                         <a href="https://propertio.id/"><span style="color: #449eec;">Propertio.id</span></a>
                         adalah sebuah aplikasi inovatif yang menyediakan solusi komprehensif di bidang
