@@ -370,12 +370,12 @@
             </div>
 
             <div id="owl-demo" class="owl-carousel owl-theme scroll3">
-                <img src="{{ url('/img/partner/bca.png') }}" alt="">
-                <img src="{{ url('/img/partner/grab.png') }}" alt="">
-                <img src="{{ url('/img/partner/blibli.png') }}" alt="">
-                <img src="{{ url('/img/partner/gojek.png') }}" alt="">
-                <img src="{{ url('/img/partner/meta.png') }}" alt="">
-                <img src="{{ url('/img/partner/crisp.png') }}" alt="">
+                <img src="{{ url('/img/partner/ugm.png') }}" alt="Universitas Gadjah Mada">
+                <img src="{{ url('/img/partner/adb.png') }}" alt="Asian Development Bank">
+                <img src="{{ url('/img/partner/kemenkop.png') }}" alt="Kemenkop UKM">
+                <img src="{{ url('/img/partner/kemendikbud.png') }}" alt="Kementrian Pendidikan dan Kebudayaan">
+                <img src="{{ url('/img/partner/accessive.png') }}" alt="Accessive.id">
+                <img src="{{ url('/img/partner/mgi.png') }}" alt="PT. Mitra Global Indonesia">
             </div>
         </div>
     </section>
