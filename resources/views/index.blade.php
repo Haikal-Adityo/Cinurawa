@@ -376,6 +376,7 @@
                 <img src="{{ url('/img/partner/kemendikbud.png') }}" alt="Kementrian Pendidikan dan Kebudayaan">
                 <img src="{{ url('/img/partner/accessive.png') }}" alt="Accessive.id">
                 <img src="{{ url('/img/partner/mgi.png') }}" alt="PT. Mitra Global Indonesia">
+                <img src="{{ url('/img/partner/ia.png') }}" alt="Innovative Academy UGM">
             </div>
         </div>
     </section>
